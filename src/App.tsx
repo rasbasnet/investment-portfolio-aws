@@ -1,26 +1,68 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import "./App.css";
+import BasePage from "./frontend/basePage/BasePage";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import LoginPage from "./frontend/loginPage/LoginPage";
+import { AuthContext } from "./frontend/AuthenticatorProvider";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const PrivateRoute = ({ component: Component, authenticated }: any) =>
+	authenticated === true ? (
+		Component
+	) : (
+		<Navigate to="/investment-portfolios/login" replace={true} />
+	);
+
+const PublicRoute = ({ component: Component, authenticated }: any) =>
+	authenticated === false ? (
+		Component
+	) : (
+		<Navigate to="/investment-portfolios/" replace={true} />
+	);
+const App = () => {
+	const { authenticated } = useContext(AuthContext);
+
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route
+					path="/investment-portfolios*"
+					element={
+						authenticated ? (
+							<Navigate
+								to="/investment-portfolios/customers"
+								replace={true}
+							/>
+						) : (
+							<Navigate
+								to="/investment-portfolios/login"
+								replace={true}
+							/>
+						)
+					}
+				></Route>
+				<Route
+					path="/investment-portfolios/customers"
+					element={
+						<PrivateRoute
+							authenticated={authenticated}
+							path="/investment-portfolios/customers"
+							component={<BasePage />}
+						/>
+					}
+				></Route>
+				<Route
+					path="/investment-portfolios/login"
+					element={
+						<PublicRoute
+							authenticated={authenticated}
+							path="/investment-portfolios/login"
+							component={<LoginPage />}
+						/>
+					}
+				></Route>
+			</Routes>
+		</BrowserRouter>
+	);
+};
 
 export default App;
