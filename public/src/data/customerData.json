@@ -9,7 +9,8 @@
 				"annualReturn": 12,
 				"investmentValue": 12000,
 				"sector": "Technology",
-				"country": "USA"
+				"country": "USA",
+				"investmentType": "Stock"
 			},
 			{
 				"assetName": "Amazon Inc.",
@@ -18,7 +19,8 @@
 				"annualReturn": 15,
 				"investmentValue": 9000,
 				"sector": "E-commerce",
-				"country": "USA"
+				"country": "USA",
+				"investmentType": "Stock"
 			}
 		]
 	},
@@ -32,7 +34,8 @@
 				"annualReturn": 20,
 				"investmentValue": 18000,
 				"sector": "Automotive",
-				"country": "USA"
+				"country": "USA",
+				"investmentType": "Stock"
 			},
 			{
 				"assetName": "Google Inc.",
@@ -41,7 +44,8 @@
 				"annualReturn": 12,
 				"investmentValue": 15000,
 				"sector": "Technology",
-				"country": "USA"
+				"country": "USA",
+				"investmentType": "Stock"
 			},
 			{
 				"assetName": "Microsoft Inc.",
@@ -50,7 +54,8 @@
 				"annualReturn": 10,
 				"investmentValue": 10000,
 				"sector": "Technology",
-				"country": "USA"
+				"country": "USA",
+				"investmentType": "Stock"
 			}
 		]
 	},
@@ -64,7 +69,8 @@
 				"annualReturn": 18,
 				"investmentValue": 11000,
 				"sector": "Semiconductor",
-				"country": "USA"
+				"country": "USA",
+				"investmentType": "Stock"
 			}
 		]
 	},
@@ -78,7 +84,8 @@
 				"annualReturn": 8,
 				"investmentValue": 20000,
 				"sector": "Finance",
-				"country": "USA"
+				"country": "USA",
+				"investmentType": "Stock"
 			},
 			{
 				"assetName": "Facebook Inc.",
@@ -87,7 +94,8 @@
 				"annualReturn": 15,
 				"investmentValue": 14000,
 				"sector": "Technology",
-				"country": "USA"
+				"country": "USA",
+				"investmentType": "Stock"
 			},
 			{
 				"assetName": "IBM Inc.",
@@ -96,7 +104,8 @@
 				"annualReturn": 6,
 				"investmentValue": 6000,
 				"sector": "Technology",
-				"country": "USA"
+				"country": "USA",
+				"investmentType": "Stock"
 			}
 		]
 	}

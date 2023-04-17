@@ -7,19 +7,28 @@ const app = express();
 app.use(cors()); // Add this line to allow CORS requests
 app.use(express.json());
 
-app.get("/api/loginData", (req, res) => {
-	fs.readFile("../../public/src/data/loginData.json", (err, data) => {
-		if (err) {
-			console.error(err);
-			res.status(500).send("Error getting data");
-		} else {
-			res.setHeader("Content-Type", "application/json");
-			res.send(data);
-		}
-	});
+app.post("/api/login", (req, res) => {
+	// Retrieve the username and password from the request body
+	const { userName, password } = req.body;
+
+	// Check if the username and password match any records in the loginData array
+	const loginData = JSON.parse(
+		fs.readFileSync("../../public/src/data/loginData.json", "utf8")
+	);
+
+	const match = loginData.find(
+		(data) => data.userName === userName && data.password === password
+	);
+
+	// Send a response based on the result of the validation
+	if (match) {
+		res.status(200).send("Login successful");
+	} else {
+		res.status(401).send("Invalid username or password");
+	}
 });
 
-app.get("/api/customerData", (req, res) => {
+app.get("/api/customers", (req, res) => {
 	fs.readFile("../../public/src/data/customerData.json", (err, data) => {
 		if (err) {
 			console.error(err);

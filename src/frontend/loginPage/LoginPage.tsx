@@ -13,8 +13,7 @@ import "./LoginPage.css";
 import { VisibilityOff, Visibility } from "@mui/icons-material";
 import { useState } from "react";
 import LoginIcon from "@mui/icons-material/Login";
-import { LoginData } from "../../JsonInterfaces/LoginDataInterface";
-import { fetchLoginInfo } from "../utils/fetchUtil";
+import { logIn } from "../utils/fetchUtil";
 
 const LoginPage: React.FC<{}> = () => {
 	const [showPassword, setShowPassword] = useState(false);
@@ -29,13 +28,8 @@ const LoginPage: React.FC<{}> = () => {
 		event.preventDefault();
 	};
 	const login = async () => {
-		const loginData = await fetchLoginInfo();
-		if (
-			loginData.some(
-				(user: LoginData) =>
-					user.userName === userName && user.password === password
-			)
-		) {
+		const loggedIn = await logIn(userName, password);
+		if (loggedIn) {
 			setError(false);
 			window.sessionStorage.setItem("loggedIn", "true");
 			window.location.assign("/investment-portfolios");

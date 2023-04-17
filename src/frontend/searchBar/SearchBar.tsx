@@ -51,6 +51,25 @@ const SearchBar: React.FC<SearchBarProps> = ({ customerData }) => {
 		window.location.assign("/investment-portfolios");
 		window.location.reload();
 	};
+
+	const calculateRiskInvestmentProfile = (
+		currentCustomer: CustomerData | null
+	) => {
+		// The risk investment profile is a measure of the overall risk exposure of a customer's investment portfolio.
+		// We need to return the overall risk investment profile for the customer
+
+		// totalWeightedRiskScore = 0
+		// totalWeightedAllocation = 0
+
+		// loop through currentCustomers.portfolios
+		//calculate riskScore and allocation of each one
+		// all it accordingly to the above variables
+
+		// riskProfile = totalWeightedRiskScore / totalWeightedAllocation
+		// return riskProfile
+
+		return "100";
+	};
 	return (
 		<>
 			<Grid
@@ -83,10 +102,18 @@ const SearchBar: React.FC<SearchBarProps> = ({ customerData }) => {
 										<Typography variant="h5">{`Asset: ${portfolio.assetName}`}</Typography>
 										<Typography variant="body1">{`Allocation: ${portfolio.allocation}`}</Typography>
 										<Typography variant="body1">{`Risk Score: ${portfolio.riskScore}`}</Typography>
+										<Typography variant="body1">{`Annual Return: ${portfolio.annualReturn}`}</Typography>
+										<Typography variant="body1">{`Investment Value: ${portfolio.investmentValue}`}</Typography>
+										<Typography variant="body1">{`Sector: ${portfolio.sector}`}</Typography>
+										<Typography variant="body1">{`Investment Type: ${portfolio.investmentType}`}</Typography>
+										<Typography variant="body1">{`Country: ${portfolio.country}`}</Typography>
 										<br />
 									</>
 								)
 							)}
+							<Typography variant="body1">{`Risk Investment Profile: ${calculateRiskInvestmentProfile(
+								currentCustomer
+							)}`}</Typography>
 						</ModalDialog>
 					</Modal>
 				)}
