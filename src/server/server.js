@@ -1,14 +1,14 @@
-import express from "express";
-import cors from "cors";
-import fs from "fs";
+const express = require("express");
+const cors = require("cors");
+const fs = require("fs");
 
 const app = express();
 
 app.use(cors()); // Add this line to allow CORS requests
 app.use(express.json());
 
-app.get("/api/loginInfo", (req, res: express.Response) => {
-	fs.readFile("./public/src/data/loginData.json", (err, data) => {
+app.get("/api/loginData", (req, res) => {
+	fs.readFile("../../public/src/data/loginData.json", (err, data) => {
 		if (err) {
 			console.error(err);
 			res.status(500).send("Error getting data");
@@ -19,8 +19,8 @@ app.get("/api/loginInfo", (req, res: express.Response) => {
 	});
 });
 
-app.get("/api/customerData", (req, res: express.Response) => {
-	fs.readFile("./public/src/data/customerData.json", (err, data) => {
+app.get("/api/customerData", (req, res) => {
+	fs.readFile("../../public/src/data/customerData.json", (err, data) => {
 		if (err) {
 			console.error(err);
 			res.status(500).send("Error getting data");
@@ -31,6 +31,6 @@ app.get("/api/customerData", (req, res: express.Response) => {
 	});
 });
 
-app.listen(3001, () => {
-	console.log("Server started on port 3001");
+app.listen(3005, () => {
+	console.log("Server started on port 3005");
 });
