@@ -62,8 +62,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ customerData }) => {
 		// totalWeightedAllocation = 0
 
 		// loop through currentCustomers.portfolios
-		//calculate riskScore and allocation of each one
-		// all it accordingly to the above variables
+		// calculate weightedRiskScore and allocation of each one
+		// weightedRiskScore = allocation * riskScore
+		// weightedAllocation = allocation
+		// all it accordingly to the above total variables
 
 		// riskProfile = totalWeightedRiskScore / totalWeightedAllocation
 		// return riskProfile
