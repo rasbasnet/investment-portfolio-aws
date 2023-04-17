@@ -14,7 +14,7 @@ Once you have please cd to the repo on your terminal and run the following
 
 Then once complete please run:
 
-### `yarn start`
+#### `yarn start`
 
 This will run the app.\
 Open [http://localhost:3000/investment-portfolios/login](http://localhost:3000/investment-portfolios/login) to view it in the browser.
