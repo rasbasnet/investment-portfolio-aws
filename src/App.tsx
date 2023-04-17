@@ -29,7 +29,7 @@ const App = () => {
 					element={
 						authenticated ? (
 							<Navigate
-								to="/investment-portfolios/customers"
+								to="/investment-portfolios/homepage"
 								replace={true}
 							/>
 						) : (
@@ -41,11 +41,11 @@ const App = () => {
 					}
 				></Route>
 				<Route
-					path="/investment-portfolios/customers"
+					path="/investment-portfolios/homepage"
 					element={
 						<PrivateRoute
 							authenticated={authenticated}
-							path="/investment-portfolios/customers"
+							path="/investment-portfolios/homepage"
 							component={<BasePage />}
 						/>
 					}
