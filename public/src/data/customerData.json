@@ -1,0 +1,103 @@
+[
+	{
+		"customerName": "John Doe",
+		"portfolio": [
+			{
+				"assetName": "Apple Inc.",
+				"allocation": 30,
+				"riskScore": 4,
+				"annualReturn": 12,
+				"investmentValue": 12000,
+				"sector": "Technology",
+				"country": "USA"
+			},
+			{
+				"assetName": "Amazon Inc.",
+				"allocation": 20,
+				"riskScore": 5,
+				"annualReturn": 15,
+				"investmentValue": 9000,
+				"sector": "E-commerce",
+				"country": "USA"
+			}
+		]
+	},
+	{
+		"customerName": "Jane Smith",
+		"portfolio": [
+			{
+				"assetName": "Tesla Inc.",
+				"allocation": 45,
+				"riskScore": 6,
+				"annualReturn": 20,
+				"investmentValue": 18000,
+				"sector": "Automotive",
+				"country": "USA"
+			},
+			{
+				"assetName": "Google Inc.",
+				"allocation": 30,
+				"riskScore": 4,
+				"annualReturn": 12,
+				"investmentValue": 15000,
+				"sector": "Technology",
+				"country": "USA"
+			},
+			{
+				"assetName": "Microsoft Inc.",
+				"allocation": 25,
+				"riskScore": 3,
+				"annualReturn": 10,
+				"investmentValue": 10000,
+				"sector": "Technology",
+				"country": "USA"
+			}
+		]
+	},
+	{
+		"customerName": "Oliver Brown",
+		"portfolio": [
+			{
+				"assetName": "NVIDIA Inc.",
+				"allocation": 35,
+				"riskScore": 5,
+				"annualReturn": 18,
+				"investmentValue": 11000,
+				"sector": "Semiconductor",
+				"country": "USA"
+			}
+		]
+	},
+	{
+		"customerName": "Sophia Davis",
+		"portfolio": [
+			{
+				"assetName": "Berkshire Hathaway Inc.",
+				"allocation": 50,
+				"riskScore": 3,
+				"annualReturn": 8,
+				"investmentValue": 20000,
+				"sector": "Finance",
+				"country": "USA"
+			},
+			{
+				"assetName": "Facebook Inc.",
+				"allocation": 35,
+				"riskScore": 4,
+				"annualReturn": 15,
+				"investmentValue": 14000,
+				"sector": "Technology",
+				"country": "USA"
+			},
+			{
+				"assetName": "IBM Inc.",
+				"allocation": 15,
+				"riskScore": 3,
+				"annualReturn": 6,
+				"investmentValue": 6000,
+				"sector": "Technology",
+				"country": "USA"
+			}
+		]
+	}
+]
