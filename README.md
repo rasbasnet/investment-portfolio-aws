@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Clone this repo
 
-Install node and yarn: https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable
+Install node and yarn: https://classic.yarnpkg.com/lang/en/docs/install
 
 Once you have please cd to the repo on your terminal and run the following
 
