@@ -108,5 +108,130 @@
 				"investmentType": "Stock"
 			}
 		]
+	},
+	{
+		"customerName": "Alice Johnson",
+		"portfolio": [
+			{
+				"assetName": "Netflix Inc.",
+				"allocation": 40,
+				"riskScore": 6,
+				"annualReturn": 17,
+				"investmentValue": 20000,
+				"sector": "Entertainment",
+				"country": "USA",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Walmart Inc.",
+				"allocation": 30,
+				"riskScore": 4,
+				"annualReturn": 11,
+				"investmentValue": 15000,
+				"sector": "Retail",
+				"country": "USA",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Coca-Cola Co.",
+				"allocation": 20,
+				"riskScore": 2,
+				"annualReturn": 5,
+				"investmentValue": 8000,
+				"sector": "Beverage",
+				"country": "USA",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Procter & Gamble Co.",
+				"allocation": 10,
+				"riskScore": 2,
+				"annualReturn": 6,
+				"investmentValue": 5000,
+				"sector": "Consumer Goods",
+				"country": "USA",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "David Lee",
+		"portfolio": [
+			{
+				"assetName": "Alphabet Inc.",
+				"allocation": 50,
+				"riskScore": 5,
+				"annualReturn": 14,
+				"investmentValue": 25000,
+				"sector": "Technology",
+				"country": "USA",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Johnson & Johnson",
+				"allocation": 30,
+				"riskScore": 3,
+				"annualReturn": 9,
+				"investmentValue": 18000,
+				"sector": "Healthcare",
+				"country": "USA",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Pfizer Inc.",
+				"allocation": 20,
+				"riskScore": 2,
+				"annualReturn": 6,
+				"investmentValue": 10000,
+				"sector": "Healthcare",
+				"country": "USA",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Michael Brown",
+		"portfolio": [
+			{
+				"assetName": "Goldman Sachs Group Inc.",
+				"allocation": 35,
+				"riskScore": 5,
+				"annualReturn": 11,
+				"investmentValue": 12000,
+				"sector": "Finance",
+				"country": "USA",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "American Express Co.",
+				"allocation": 25,
+				"riskScore": 3,
+				"annualReturn": 8,
+				"investmentValue": 9000,
+				"sector": "Finance",
+				"country": "USA",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "JPMorgan Chase & Co.",
+				"allocation": 20,
+				"riskScore": 4,
+				"annualReturn": 10,
+				"investmentValue": 8000,
+				"sector": "Finance",
+				"country": "USA",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Bank of America Corp.",
+				"allocation": 20,
+				"riskScore": 3,
+				"annualReturn": 7,
+				"investmentValue": 7000,
+				"sector": "Finance",
+				"country": "USA",
+				"investmentType": "Stock"
+			}
+		]
 	}
 ]
