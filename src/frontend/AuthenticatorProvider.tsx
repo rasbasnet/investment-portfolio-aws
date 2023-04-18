@@ -1,12 +1,12 @@
 import React, { createContext, useState, useEffect } from "react";
 
 interface AuthContextType {
-	authenticated: boolean;
+	authenticated: boolean | null;
 	setAuthenticated: (authenticated: boolean) => void;
 }
 
 export const AuthContext = createContext<AuthContextType>({
-	authenticated: false,
+	authenticated: null,
 	setAuthenticated: () => {},
 });
 
@@ -15,7 +15,7 @@ interface AuthProviderProps {
 }
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-	const [authenticated, setAuthenticated] = useState<boolean>(false);
+	const [authenticated, setAuthenticated] = useState<boolean | null>(null);
 
 	useEffect(() => {
 		const authenticated = sessionStorage.getItem("loggedIn");

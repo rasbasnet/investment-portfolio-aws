@@ -4,6 +4,7 @@ import BasePage from "./frontend/basePage/BasePage";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LoginPage from "./frontend/loginPage/LoginPage";
 import { AuthContext } from "./frontend/AuthenticatorProvider";
+import CustomerPage from "./frontend/customerPage/CustomerPage";
 
 const PrivateRoute = ({ component: Component, authenticated }: any) =>
 	authenticated === true ? (
@@ -16,28 +17,26 @@ const PublicRoute = ({ component: Component, authenticated }: any) =>
 	authenticated === false ? (
 		Component
 	) : (
-		<Navigate to="/investment-portfolios/" replace={true} />
+		<Navigate to="/investment-portfolios/homepage" replace={true} />
 	);
 const App = () => {
 	const { authenticated } = useContext(AuthContext);
+
+	if (authenticated !== true && authenticated !== false) {
+		return <div>Error Please Refresh</div>;
+	}
 
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route
-					path="/investment-portfolios*"
+					path="/investment-portfolios/customers/*"
 					element={
-						authenticated ? (
-							<Navigate
-								to="/investment-portfolios/homepage"
-								replace={true}
-							/>
-						) : (
-							<Navigate
-								to="/investment-portfolios/login"
-								replace={true}
-							/>
-						)
+						<PrivateRoute
+							authenticated={authenticated}
+							path="/investment-portfolios/customers/"
+							component={<CustomerPage />}
+						/>
 					}
 				></Route>
 				<Route
