@@ -19,9 +19,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
 	useEffect(() => {
 		const authenticated = sessionStorage.getItem("loggedIn");
-		if (authenticated) {
-			setAuthenticated(!!authenticated);
-		}
+		setAuthenticated(!!authenticated);
 	}, []);
 
 	const handleSetAuthenticated = (value: boolean) => {
