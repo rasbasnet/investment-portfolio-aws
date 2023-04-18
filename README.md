@@ -18,3 +18,8 @@ Then once complete please run:
 
 This will run the app.\
 Open [http://localhost:3000/investment-portfolios/login](http://localhost:3000/investment-portfolios/login) to view it in the browser.
+
+
+TO START THE SERVER:
+cd to `/src/server`
+run `node server.js`
