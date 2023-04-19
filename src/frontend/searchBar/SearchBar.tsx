@@ -37,6 +37,15 @@ const SearchBar: React.FC<SearchBarProps> = ({ customerData }) => {
 	) => {
 		// The risk investment profile is a measure of the overall risk exposure of a customer's investment portfolio.
 		// We need to return the overall risk investment profile for the customer
+		var totalWeightedRiskScore = 0
+		var totalWeightedAllocation = 0
+
+		currentCustomer?.portfolio.forEach(asset => {
+			totalWeightedAllocation += asset.allocation * asset.riskScore
+			totalWeightedAllocation += asset.allocation
+		})
+
+		return totalWeightedRiskScore / totalWeightedAllocation;
 
 		// totalWeightedRiskScore = 0
 		// totalWeightedAllocation = 0
@@ -49,8 +58,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ customerData }) => {
 
 		// riskProfile = totalWeightedRiskScore / totalWeightedAllocation
 		// return riskProfile
-
-		return "100";
 	};
 	return (
 		<Grid
