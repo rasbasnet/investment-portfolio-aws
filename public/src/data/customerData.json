@@ -233,5 +233,150 @@
 				"investmentType": "Stock"
 			}
 		]
+	},
+	{
+		"customerName": "Lesley Scott",
+		"portfolio": [
+			{
+				"assetName": "Bank of Queensland",
+				"allocation": 30,
+				"riskScore": 3,
+				"annualReturn": 15,
+				"investmentValue": 2000,
+				"sector": "Banks",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Compare the Market Australia",
+				"allocation": 40,
+				"riskScore": 2,
+				"annualReturn": 12,
+				"investmentValue": 1500,
+				"sector": "Insurance brokers",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Erika Pope",
+		"portfolio": [
+			{
+				"assetName": "Crown Resorts",
+				"allocation": 10,
+				"riskScore": 1,
+				"annualReturn": 20,
+				"investmentValue": 6000,
+				"sector": "Hotels",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Marta Gallagher",
+		"portfolio": [
+			{
+				"assetName": "Eraring Energy",
+				"allocation": 23,
+				"riskScore": 3,
+				"annualReturn": 13,
+				"investmentValue": 7000,
+				"sector": "Conventional electricity",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Eagle Boys",
+				"allocation": 24,
+				"riskScore": 2,
+				"annualReturn": 17,
+				"investmentValue": 10000,
+				"sector": "Restaurant & bars",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Elders",
+				"allocation": 21,
+				"riskScore": 2,
+				"annualReturn": 11,
+				"investmentValue": 6700,
+				"sector": "Farming & fishing",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Jonathan Peters",
+		"portfolio": [
+			{
+				"assetName": "Gunns",
+				"allocation": 15,
+				"riskScore": 4,
+				"annualReturn": 14,
+				"investmentValue": 7800,
+				"sector": "Forestry",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Cliff Glenn",
+		"portfolio": [
+			{
+				"assetName": "Freehand Group",
+				"allocation": 11,
+				"riskScore": 5,
+				"annualReturn": 15,
+				"investmentValue": 22000,
+				"sector": "Broadcasting & entertainment",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Harvey Norman",
+				"allocation": 26,
+				"riskScore": 1,
+				"annualReturn": 19,
+				"investmentValue": 19000,
+				"sector": "Specialty retailers",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Hoyts",
+				"allocation": 20,
+				"riskScore": 3,
+				"annualReturn": 8,
+				"investmentValue": 15000,
+				"sector": "Recreational services",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Insurance Australia Group",
+				"allocation": 13,
+				"riskScore": 5,
+				"annualReturn": 29,
+				"investmentValue": 23000,
+				"sector": "Full line insurance",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Lendlease",
+				"allocation": 12,
+				"riskScore": 4,
+				"annualReturn": 21,
+				"investmentValue": 7700,
+				"sector": "Heavy construction",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
 	}
 ]
