@@ -378,5 +378,155 @@
 				"investmentType": "Stock"
 			}
 		]
+	},
+	{
+		"customerName": "Cindy Phelps", 
+		"portfolio": [
+			{
+				"assetName": "Lion",
+				"allocation": 8,
+				"riskScore": 5,
+				"annualReturn": 10,
+				"investmentValue": 5000,
+				"sector": "Food & beverage",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Darron Kelley", 
+		"portfolio": [
+			{
+				"assetName": "Macquarie Atlas Roads",
+				"allocation": 12,
+				"riskScore": 4,
+				"annualReturn": 11,
+				"investmentValue": 5600,
+				"sector": "Heavy construction",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Greg Ferrell", 
+		"portfolio": [
+			{
+				"assetName": "Metal storm",
+				"allocation": 8,
+				"riskScore": 3,
+				"annualReturn": 7,
+				"investmentValue": 11000,
+				"sector": "Defence",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Dolores Vaughan", 
+		"portfolio": [
+			{
+				"assetName": "Newcastle Port Corporation",
+				"allocation": 9,
+				"riskScore": 2,
+				"annualReturn": 17,
+				"investmentValue": 9800,
+				"sector": "Transportation services",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Marrisa Rich", 
+		"portfolio": [
+			{
+				"assetName": "Queensland Rail",
+				"allocation": 6,
+				"riskScore": 5,
+				"annualReturn": 9,
+				"investmentValue": 6600,
+				"sector": "Railroads",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Kieth Mcdowell", 
+		"portfolio": [
+			{
+				"assetName": "Patrick Corporation",
+				"allocation": 20,
+				"riskScore": 3,
+				"annualReturn": 17,
+				"investmentValue": 8900,
+				"sector": "Delivery services",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Florine Grant", 
+		"portfolio": [
+			{
+				"assetName": "Rinker Group",
+				"allocation": 15,
+				"riskScore": 4,
+				"annualReturn": 16,
+				"investmentValue": 8970,
+				"sector": "Building materials and fixtures",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Hershel Shields", 
+		"portfolio": [
+			{
+				"assetName": "Red Rooster",
+				"allocation": 4,
+				"riskScore": 1,
+				"annualReturn": 30,
+				"investmentValue": 10000,
+				"sector": "Restaurants & bars",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Stewart Meyers", 
+		"portfolio": [
+			{
+				"assetName": "Seven Network",
+				"allocation": 10,
+				"riskScore": 2,
+				"annualReturn": 18,
+				"investmentValue": 4000,
+				"sector": "Broadcasting & entertainment",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Cheryl Larson", 
+		"portfolio": [
+			{
+				"assetName": "Special Broadcasting Service",
+				"allocation": 13,
+				"riskScore": 2,
+				"annualReturn": 18,
+				"investmentValue": 9900,
+				"sector": "Broadcasting & entertainment",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
 	}
 ]
