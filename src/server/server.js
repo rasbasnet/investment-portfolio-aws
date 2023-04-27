@@ -40,6 +40,33 @@ app.get("/api/customers", (req, res) => {
 	});
 });
 
+app.post("/api/customers", (req, res) => {
+	const customerData = req.body;
+
+	fs.readFile("../../public/src/data/customerData.json", (err, data) => {
+		if (err) {
+			console.error(err);
+			res.status(500).send("Error getting data");
+		} else {
+			const jsonData = JSON.parse(data);
+			jsonData.push(customerData);
+
+			fs.writeFile(
+				"../../public/src/data/customerData.json",
+				JSON.stringify(jsonData, null, 2),
+				(err) => {
+					if (err) {
+						console.error(err);
+						res.status(500).send("Error saving data");
+					} else {
+						res.status(200).send("Customer data saved");
+					}
+				}
+			);
+		}
+	});
+});
+
 app.listen(3005, () => {
 	console.log("Server started on port 3005");
 });
