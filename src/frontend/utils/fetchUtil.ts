@@ -1,3 +1,5 @@
+import { CustomerData } from "../../JsonInterfaces/CustomerDataInterface";
+
 export const logIn = async (userName: string, password: string) => {
 	const response = await fetch("http://localhost:3005/api/login", {
 		method: "POST",
@@ -20,3 +22,12 @@ export const fetchCustomerData = async () =>
 	await fetch("http://localhost:3005/api/customers", {
 		method: "GET",
 	}).then((response) => response.json());
+
+export const addCustomerData = async (customerData: CustomerData) =>
+	await fetch("http://localhost:3005/api/customers", {
+		method: "POST",
+		body: JSON.stringify(customerData),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});

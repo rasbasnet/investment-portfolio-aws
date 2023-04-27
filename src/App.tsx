@@ -40,7 +40,7 @@ const App = () => {
 					}
 				></Route>
 				<Route
-					path="/investment-portfolios/homepage"
+					path="/investment-portfolios/homepage/*"
 					element={
 						<PrivateRoute
 							authenticated={authenticated}
@@ -50,7 +50,7 @@ const App = () => {
 					}
 				></Route>
 				<Route
-					path="/investment-portfolios/login"
+					path="/investment-portfolios/login/*"
 					element={
 						<PublicRoute
 							authenticated={authenticated}

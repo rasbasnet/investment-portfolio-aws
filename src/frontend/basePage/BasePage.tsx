@@ -1,7 +1,7 @@
 import { Grid, Typography, Paper, Box, Avatar } from "@mui/material";
 import SearchBar from "../searchBar/SearchBar";
 import { useEffect, useState } from "react";
-import { fetchCustomerData } from "../utils/fetchUtil";
+import { addCustomerData, fetchCustomerData } from "../utils/fetchUtil";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { CustomerData } from "../../JsonInterfaces/CustomerDataInterface";
 import { Button } from "@mui/joy";
@@ -15,6 +15,7 @@ import {
 	ShowChart,
 	KeyboardDoubleArrowDown,
 } from "@mui/icons-material";
+import AddCustomerModal from "../addCustomerModal/AddCustomerModal";
 const BasePage: React.FC<{}> = () => {
 	const [customerData, setCustomerData] = useState<CustomerData[] | null>(
 		null
@@ -22,6 +23,17 @@ const BasePage: React.FC<{}> = () => {
 	const [currentCustomer, setCurrentCustomer] = useState<CustomerData | null>(
 		null
 	);
+
+	const [showAddCustomerModal, setShowAddCustomerModal] = useState(false);
+
+	const handleAddCustomerModal = () => {
+		setShowAddCustomerModal(!showAddCustomerModal);
+	};
+
+	const handleSubmitCustomer = async (customer: CustomerData) => {
+		const addCustomer = await addCustomerData(customer);
+		return addCustomer?.status === 200 || false;
+	};
 
 	useEffect(() => {
 		async function getCustomerData() {
@@ -131,6 +143,12 @@ const BasePage: React.FC<{}> = () => {
 											<Typography variant="h6">
 												Customers:
 											</Typography>
+											<Button
+												color="danger"
+												onClick={handleAddCustomerModal}
+											>
+												+ Add a customer
+											</Button>
 											{customerData.map(
 												(
 													customer: CustomerData,
@@ -192,7 +210,6 @@ const BasePage: React.FC<{}> = () => {
 					</Grid>
 				</Grid>
 			</Element>
-
 			<Element
 				name="section2"
 				style={{
@@ -403,6 +420,11 @@ const BasePage: React.FC<{}> = () => {
 					<br></br>
 				</Grid>
 			</Element>
+			<AddCustomerModal
+				open={showAddCustomerModal}
+				handleClose={() => setShowAddCustomerModal(false)}
+				addCustomer={handleSubmitCustomer}
+			/>
 		</div>
 	) : (
 		<div>Error fetching data. Please refresh</div>
