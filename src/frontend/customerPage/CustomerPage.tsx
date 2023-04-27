@@ -6,18 +6,9 @@ import {
 } from "../../JsonInterfaces/CustomerDataInterface";
 import { fetchCustomerData } from "../utils/fetchUtil";
 import { Typography, Grid, CardContent, CardHeader, Card } from "@mui/material";
-import {
-	Toolbar,
-	Avatar,
-	IconButton,
-	List,
-	ListItem,
-	ListItemText,
-} from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-
 import Chart from "chart.js/auto";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
+import SideNavigation from "./Components/SideNavigation";
 Chart.register();
 const CustomerPage: React.FC<{}> = () => {
 	const [searchParams] = useSearchParams();
@@ -178,82 +169,11 @@ const CustomerPage: React.FC<{}> = () => {
 	return (
 		<>
 			<Grid container justifyContent="start" alignItems="start">
-				<Grid
-					container
-					item
-					xs={12}
-					md={2}
-					justifyContent="center"
-					alignItems="center"
-					direction="column"
-				>
-					<Grid
-						item
-						xs={2}
-						container
-						justifyContent="center"
-						alignItems="center"
-					>
-						<Toolbar>
-							<IconButton
-								color="inherit"
-								aria-label="homepage"
-								edge="start"
-								onClick={() =>
-									window.location.assign(
-										"/investment-portfolios/homepage"
-									)
-								}
-							>
-								<HomeIcon />
-							</IconButton>
-						</Toolbar>
-					</Grid>
-					<Grid
-						item
-						xs={10}
-						container
-						justifyContent="center"
-						alignItems="center"
-					>
-						<List
-							sx={{
-								display: "flex",
-								flexDirection: "column",
-							}}
-						>
-							<ListItem
-								sx={{
-									justifyContent: "center",
-									flexDirection: "column",
-									pb: 4,
-								}}
-							>
-								<Avatar />
-								<ListItemText
-									primary={currentCustomer?.customerName}
-									primaryTypographyProps={{
-										align: "center",
-									}}
-								/>
-							</ListItem>
-							<ListItem
-								button
-								selected={selectedView === "portfolio"}
-								onClick={() => setSelectedView("portfolio")}
-							>
-								<ListItemText primary="Portfolio" />
-							</ListItem>
-							<ListItem
-								button
-								selected={selectedView === "riskProfile"}
-								onClick={() => setSelectedView("riskProfile")}
-							>
-								<ListItemText primary="Risk Profile" />
-							</ListItem>
-						</List>
-					</Grid>
-				</Grid>
+				<SideNavigation
+					customerName={currentCustomer?.customerName}
+					selectedView={selectedView}
+					setSelectedView={setSelectedView}
+				/>
 
 				<Grid
 					item
