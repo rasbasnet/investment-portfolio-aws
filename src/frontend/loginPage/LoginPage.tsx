@@ -32,7 +32,7 @@ const LoginPage: React.FC<{}> = () => {
 		if (loggedIn) {
 			setError(false);
 			window.sessionStorage.setItem("loggedIn", "true");
-			window.location.assign("/investment-portfolios");
+			window.location.assign("/investment-portfolios/homepage");
 			window.location.reload();
 		} else {
 			setError(true);

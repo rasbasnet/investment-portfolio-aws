@@ -5,6 +5,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LoginPage from "./frontend/loginPage/LoginPage";
 import { AuthContext } from "./frontend/AuthenticatorProvider";
 import CustomerPage from "./frontend/customerPage/CustomerPage";
+import ErrorBoundary from "./frontend/ErrorBoundary/ErrorBoundary";
 
 const PrivateRoute = ({ component: Component, authenticated }: any) =>
 	authenticated === true ? (
@@ -28,38 +29,40 @@ const App = () => {
 
 	return (
 		<BrowserRouter>
-			<Routes>
-				<Route
-					path="/investment-portfolios/customers/*"
-					element={
-						<PrivateRoute
-							authenticated={authenticated}
-							path="/investment-portfolios/customers/"
-							component={<CustomerPage />}
-						/>
-					}
-				></Route>
-				<Route
-					path="/investment-portfolios/homepage/*"
-					element={
-						<PrivateRoute
-							authenticated={authenticated}
-							path="/investment-portfolios/homepage"
-							component={<BasePage />}
-						/>
-					}
-				></Route>
-				<Route
-					path="/investment-portfolios/login/*"
-					element={
-						<PublicRoute
-							authenticated={authenticated}
-							path="/investment-portfolios/login"
-							component={<LoginPage />}
-						/>
-					}
-				></Route>
-			</Routes>
+			<ErrorBoundary>
+				<Routes>
+					<Route
+						path="/investment-portfolios/customers/*"
+						element={
+							<PrivateRoute
+								authenticated={authenticated}
+								path="/investment-portfolios/customers/"
+								component={<CustomerPage />}
+							/>
+						}
+					></Route>
+					<Route
+						path="/investment-portfolios/homepage/*"
+						element={
+							<PrivateRoute
+								authenticated={authenticated}
+								path="/investment-portfolios/homepage"
+								component={<BasePage />}
+							/>
+						}
+					></Route>
+					<Route
+						path="/investment-portfolios/login/*"
+						element={
+							<PublicRoute
+								authenticated={authenticated}
+								path="/investment-portfolios/login"
+								component={<LoginPage />}
+							/>
+						}
+					></Route>
+				</Routes>
+			</ErrorBoundary>
 		</BrowserRouter>
 	);
 };

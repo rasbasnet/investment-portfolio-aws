@@ -16,6 +16,7 @@ import {
 	KeyboardDoubleArrowDown,
 } from "@mui/icons-material";
 import AddCustomerModal from "../addCustomerModal/AddCustomerModal";
+import React from "react";
 const BasePage: React.FC<{}> = () => {
 	const [customerData, setCustomerData] = useState<CustomerData[] | null>(
 		null
@@ -70,9 +71,23 @@ const BasePage: React.FC<{}> = () => {
 						alignItems="center"
 					>
 						<Grid item xs={12} md={10}>
-							<Paper elevation={8} sx={{ padding: "2rem" }}>
+							<Paper
+								elevation={8}
+								sx={{
+									padding: "2rem",
+									maxHeight: "60vh",
+									overflowY: "scroll",
+								}}
+							>
 								<Grid container>
-									<Grid item xs={12} md={7}>
+									<Grid
+										item
+										xs={12}
+										md={7}
+										sx={{
+											maxHeight: "50vh",
+										}}
+									>
 										<Grid
 											item
 											container
@@ -105,6 +120,7 @@ const BasePage: React.FC<{}> = () => {
 																/>
 															</Avatar>
 															<Typography
+																fontFamily="OpenSans"
 																variant="h3"
 																className="customerName-animation link"
 															>
@@ -131,16 +147,26 @@ const BasePage: React.FC<{}> = () => {
 											</div>
 										</Grid>
 									</Grid>
-									<Grid item xs={12} md={5}>
+									<Grid
+										item
+										xs={12}
+										md={5}
+										sx={{
+											padding: "2rem",
+										}}
+									>
 										<Box
 											sx={{
-												maxHeight: "600px",
 												overflowY: "scroll",
 												borderRight: "1px solid #ccc",
 												paddingLeft: "1rem",
+												maxHeight: "50vh",
 											}}
 										>
-											<Typography variant="h6">
+											<Typography
+												fontFamily="OpenSans"
+												variant="h6"
+											>
 												Customers:
 											</Typography>
 											<Button
@@ -182,7 +208,10 @@ const BasePage: React.FC<{}> = () => {
 																		"0.5rem",
 																}}
 															/>
-															<Typography variant="body1">
+															<Typography
+																fontFamily="OpenSans"
+																variant="body1"
+															>
 																{
 																	customer.customerName
 																}
@@ -232,6 +261,7 @@ const BasePage: React.FC<{}> = () => {
 				>
 					<Grid item>
 						<Typography
+							fontFamily="OpenSans"
 							variant="h3"
 							color="primary"
 							sx={{ color: "#ffffff" }}
@@ -240,7 +270,11 @@ const BasePage: React.FC<{}> = () => {
 						</Typography>
 					</Grid>
 					<Grid item>
-						<Typography variant="h5" sx={{ color: "#ffffff" }}>
+						<Typography
+							fontFamily="OpenSans"
+							variant="h5"
+							sx={{ color: "#ffffff" }}
+						>
 							Manage Customers Portfolios and Monitor Risk
 							Profiles
 						</Typography>
@@ -257,8 +291,16 @@ const BasePage: React.FC<{}> = () => {
 					>
 						<Paper elevation={4} sx={{ padding: "2rem" }}>
 							<CallMade fontSize="large" color="primary" />
-							<Typography variant="h4">Easy Access</Typography>
-							<Typography variant="body1">
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="h4"
+							>
+								Easy Access
+							</Typography>
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="body1"
+							>
 								Quickly access customer profiles and their
 								respective investment portfolios.
 							</Typography>
@@ -273,10 +315,16 @@ const BasePage: React.FC<{}> = () => {
 					>
 						<Paper elevation={4} sx={{ padding: "2rem" }}>
 							<Security fontSize="large" color="primary" />
-							<Typography variant="h4">
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="h4"
+							>
 								Risk Management
 							</Typography>
-							<Typography variant="body1">
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="body1"
+							>
 								Monitor risk profiles of each customer and
 								manage their investments accordingly.
 							</Typography>
@@ -291,10 +339,16 @@ const BasePage: React.FC<{}> = () => {
 					>
 						<Paper elevation={4} sx={{ padding: "2rem" }}>
 							<ShowChart fontSize="large" color="primary" />
-							<Typography variant="h4">
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="h4"
+							>
 								Visual Analytics
 							</Typography>
-							<Typography variant="body1">
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="body1"
+							>
 								Gain insights through up-to-date analytics and
 								make informed investment decisions.
 							</Typography>
@@ -318,6 +372,7 @@ const BasePage: React.FC<{}> = () => {
 				>
 					<Grid item>
 						<Typography
+							fontFamily="OpenSans"
 							variant="h3"
 							color="primary"
 							sx={{ color: "#ffffff" }}
@@ -326,7 +381,11 @@ const BasePage: React.FC<{}> = () => {
 						</Typography>
 					</Grid>
 					<Grid item>
-						<Typography variant="h5" sx={{ color: "#ffffff" }}>
+						<Typography
+							fontFamily="OpenSans"
+							variant="h5"
+							sx={{ color: "#ffffff" }}
+						>
 							We stay ahead with our cutting-edge investment
 							platform
 						</Typography>
@@ -343,10 +402,16 @@ const BasePage: React.FC<{}> = () => {
 					>
 						<Paper elevation={4} sx={{ padding: "2rem" }}>
 							<Assessment fontSize="large" color="primary" />
-							<Typography variant="h4">
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="h4"
+							>
 								Innovative Strategies
 							</Typography>
-							<Typography variant="body1">
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="body1"
+							>
 								We employ cutting-edge investment strategies to
 								maximize returns while managing risk.
 							</Typography>
@@ -361,10 +426,16 @@ const BasePage: React.FC<{}> = () => {
 					>
 						<Paper elevation={4} sx={{ padding: "2rem" }}>
 							<People fontSize="large" color="primary" />
-							<Typography variant="h4">
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="h4"
+							>
 								Client-Centric Approach
 							</Typography>
-							<Typography variant="body1">
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="body1"
+							>
 								Our clients always come first. We focus on
 								understanding your unique goals and objectives.
 							</Typography>
@@ -379,10 +450,16 @@ const BasePage: React.FC<{}> = () => {
 					>
 						<Paper elevation={4} sx={{ padding: "2rem" }}>
 							<Security fontSize="large" color="primary" />
-							<Typography variant="h4">
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="h4"
+							>
 								Secure & Trusted
 							</Typography>
-							<Typography variant="body1">
+							<Typography
+								fontFamily="Open Sans, sans-serif"
+								variant="body1"
+							>
 								We prioritize the security of our clients'
 								information and assets, earning their trust.
 							</Typography>
@@ -400,12 +477,20 @@ const BasePage: React.FC<{}> = () => {
 					}}
 				>
 					<Grid item>
-						<Typography variant="h5" color="primary">
+						<Typography
+							fontFamily="OpenSans"
+							variant="h5"
+							color="primary"
+						>
 							About Asset & Wealth Services
 						</Typography>
 					</Grid>
 					<Grid item sx={{ width: "70%" }}>
-						<Typography variant="body1" sx={{ color: "black" }}>
+						<Typography
+							fontFamily="OpenSans"
+							variant="body1"
+							sx={{ color: "black" }}
+						>
 							Located in Hawthorn, Victoria, Asset & Wealth
 							Services is a leading investment management firm
 							with a strong focus on providing tailored solutions

@@ -10,3 +10,7 @@ a {
 a:hover {
 	color: inherit;
 }
+
+iframe {
+	display: none;
+}
