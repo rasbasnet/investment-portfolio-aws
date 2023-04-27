@@ -143,7 +143,7 @@ const AddCustomerModal: React.FC<AddCustomerModalProps> = ({
 	];
 
 	const handleSubmit = async () => {
-		if (isValidForm()) {
+		if (isValidForm() && customerName) {
 			setShowErrors(false);
 			const customerAdded: boolean = await addCustomer({
 				customerName,
@@ -238,6 +238,10 @@ const AddCustomerModal: React.FC<AddCustomerModalProps> = ({
 						label="Customer Name"
 						value={customerName}
 						onChange={(e) => setCustomerName(e.target.value)}
+						error={!customerName}
+						helperText={
+							!customerName && "Please enter customer name"
+						}
 						fullWidth
 						margin="dense"
 					/>
@@ -312,7 +316,6 @@ const AddCustomerModal: React.FC<AddCustomerModalProps> = ({
 														field
 													)
 												}
-												required
 											/>
 										</Grid>
 									))}
