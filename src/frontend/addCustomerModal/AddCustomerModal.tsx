@@ -49,6 +49,7 @@ const AddCustomerModal: React.FC<AddCustomerModalProps> = ({
 		useState<AssetAllocation[]>(defaultAllocation);
 
 	const [showErrors, setShowErrors] = useState(false);
+	const [errorAddingCustomer, setErrorAddingCustomer] = useState(false);
 
 	const handleAddAssetAllocation = () => {
 		setAssetAllocations([...assetAllocations, defaultAllocation[0]]);
@@ -149,9 +150,12 @@ const AddCustomerModal: React.FC<AddCustomerModalProps> = ({
 				portfolio: assetAllocations,
 			});
 			if (customerAdded) {
+				setErrorAddingCustomer(false);
 				handleClose();
 				setAssetAllocations(defaultAllocation);
 				setCustomerName("");
+			} else {
+				setErrorAddingCustomer(true);
 			}
 		} else {
 			setShowErrors(true);
@@ -365,11 +369,13 @@ const AddCustomerModal: React.FC<AddCustomerModalProps> = ({
 							Add Customer
 						</Button>
 					</Box>
-					<Box sx={{ display: "flex", justifyContent: "center" }}>
-						<Typography color="error">
-							Error adding customer please try again
-						</Typography>
-					</Box>
+					{errorAddingCustomer && (
+						<Box sx={{ display: "flex", justifyContent: "center" }}>
+							<Typography color="error">
+								Error adding customer please try again
+							</Typography>
+						</Box>
+					)}
 				</Box>
 			</Fade>
 		</Modal>
