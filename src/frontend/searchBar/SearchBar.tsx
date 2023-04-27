@@ -9,6 +9,7 @@ import {
 import "./SearchBarStyles.css";
 import { CustomerData } from "../../JsonInterfaces/CustomerDataInterface";
 import LogoutIcon from "@mui/icons-material/Logout";
+import React from "react";
 
 export interface SearchBarProps {
 	customerData: CustomerData[];
@@ -28,37 +29,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ customerData }) => {
 	};
 	const logout = () => {
 		window.sessionStorage.removeItem("loggedIn");
-		window.location.assign("/investment-portfolios");
+		window.location.assign("/investment-portfolios/login");
 		window.location.reload();
 	};
 
-	const calculateRiskInvestmentProfile = (
-		currentCustomer: CustomerData | null
-	) => {
-		// The risk investment profile is a measure of the overall risk exposure of a customer's investment portfolio.
-		// We need to return the overall risk investment profile for the customer
-		var totalWeightedRiskScore = 0
-		var totalWeightedAllocation = 0
-
-		currentCustomer?.portfolio.forEach(asset => {
-			totalWeightedAllocation += asset.allocation * asset.riskScore
-			totalWeightedAllocation += asset.allocation
-		})
-
-		return totalWeightedRiskScore / totalWeightedAllocation;
-
-		// totalWeightedRiskScore = 0
-		// totalWeightedAllocation = 0
-
-		// loop through currentCustomers.portfolios
-		// calculate weightedRiskScore and allocation of each one
-		// weightedRiskScore = allocation * riskScore
-		// weightedAllocation = allocation
-		// all it accordingly to the above total variables
-
-		// riskProfile = totalWeightedRiskScore / totalWeightedAllocation
-		// return riskProfile
-	};
 	return (
 		<Grid
 			container

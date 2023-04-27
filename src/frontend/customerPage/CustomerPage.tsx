@@ -1,17 +1,162 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
 	AssetAllocation,
 	CustomerData,
 } from "../../JsonInterfaces/CustomerDataInterface";
 import { fetchCustomerData } from "../utils/fetchUtil";
-import { Typography, Grid } from "@mui/material";
-
+import { Typography, Grid, CardContent, CardHeader, Card } from "@mui/material";
+import Chart from "chart.js/auto";
+import { Bar, Doughnut, Line, PolarArea, Radar } from "react-chartjs-2";
+import SideNavigation from "./Components/SideNavigation";
+Chart.register();
 const CustomerPage: React.FC<{}> = () => {
 	const [searchParams] = useSearchParams();
 	const [currentCustomer, setCurrentCustomer] = useState<CustomerData | null>(
 		null
 	);
+	const [selectedView, setSelectedView] = useState("portfolio");
+	const createPieChartData = (
+		portfolio: AssetAllocation[] | undefined,
+		key: keyof AssetAllocation
+	) => {
+		if (!portfolio) return [];
+
+		const dataMap = new Map<string, number>();
+
+		portfolio.forEach((item) => {
+			const value = item[key];
+			if (typeof value === "string") {
+				dataMap.set(value, (dataMap.get(value) || 0) + 1);
+			}
+		});
+
+		return Array.from(dataMap).map(([name, value]) => ({ name, value }));
+	};
+
+	const investmentTypeData = useMemo(() => {
+		return createPieChartData(currentCustomer?.portfolio, "investmentType");
+	}, [currentCustomer]);
+
+	const sectorData = useMemo(() => {
+		return createPieChartData(currentCustomer?.portfolio, "sector");
+	}, [currentCustomer]);
+
+	const investmentValueData = currentCustomer?.portfolio.map((portfolio) => ({
+		name: portfolio.assetName,
+		value: portfolio.investmentValue,
+	}));
+
+	const allocationData = currentCustomer?.portfolio.map((portfolio) => ({
+		name: portfolio.assetName,
+		value: portfolio.allocation,
+	}));
+
+	const annualReturnData = currentCustomer?.portfolio.map((portfolio) => ({
+		name: portfolio.assetName,
+		value: portfolio.annualReturn,
+	}));
+
+	const backgroundColor = [
+		"rgba(255, 99, 132, 0.2)",
+		"rgba(255, 159, 64, 0.2)",
+		"rgba(255, 205, 86, 0.2)",
+		"rgba(75, 192, 192, 0.2)",
+		"rgba(54, 162, 235, 0.2)",
+		"rgba(153, 102, 255, 0.2)",
+		"rgba(201, 203, 207, 0.2)",
+	];
+
+	const borderColor = [
+		"rgb(255, 99, 132)",
+		"rgb(255, 159, 64)",
+		"rgb(255, 205, 86)",
+		"rgb(75, 192, 192)",
+		"rgb(54, 162, 235)",
+		"rgb(153, 102, 255)",
+		"rgb(201, 203, 207)",
+	];
+
+	const renderPieChart = (data: { name: string; value: number }[]) => {
+		const chartData = {
+			labels: data.map((d) => d.name),
+			datasets: [
+				{
+					data: data.map((d) => d.value),
+					backgroundColor,
+					borderColor,
+					borderWidth: 1,
+				},
+			],
+		};
+
+		return <Doughnut data={chartData} />;
+	};
+
+	const renderPolarChart = (data: { name: string; value: number }[]) => {
+		const chartData = {
+			labels: data.map((d) => d.name),
+			datasets: [
+				{
+					data: data.map((d) => d.value),
+					backgroundColor,
+					borderColor,
+					borderWidth: 1,
+				},
+			],
+		};
+
+		return <PolarArea data={chartData} />;
+	};
+
+	const renderBarChart = (
+		data: { name: string; value: number }[],
+		chartName: string
+	) => {
+		const chartData = {
+			labels: data.map((d) => d.name),
+			datasets: [
+				{
+					data: data.map((d) => d.value),
+					label: chartName,
+					backgroundColor,
+					borderColor,
+					borderWidth: 1,
+				},
+			],
+		};
+		const options = {
+			plugins: {
+				legend: {
+					display: false,
+				},
+			},
+		};
+		return <Bar data={chartData} options={options} />;
+	};
+
+	const renderLineChart = (data: { name: string; value: number }[]) => {
+		const chartData = {
+			labels: data.map((d) => d.name),
+			datasets: [
+				{
+					label: "Investment Value",
+					data: data.map((d) => d.value),
+					fill: false,
+					borderColor: "#8884d8",
+					borderWidth: 1,
+				},
+			],
+		};
+		const options = {
+			plugins: {
+				legend: {
+					display: false,
+				},
+			},
+		};
+		return <Line data={chartData} options={options} />;
+	};
 
 	useEffect(() => {
 		async function getCustomerData() {
@@ -24,31 +169,229 @@ const CustomerPage: React.FC<{}> = () => {
 		searchParams && getCustomerData();
 	}, [searchParams]);
 
+	const calculateRiskInvestmentProfile = (
+		currentCustomer: CustomerData | null
+	) => {
+		var totalWeightedRiskScore = 0;
+		var totalWeightedAllocation = 0;
+
+		currentCustomer?.portfolio.map((asset) => {
+			totalWeightedRiskScore += asset.allocation * asset.riskScore;
+			totalWeightedAllocation += asset.allocation;
+		});
+		return totalWeightedRiskScore / totalWeightedAllocation;
+	};
+
 	return (
-		<Grid
-			container
-			item
-			direction="column"
-			justifyContent="center"
-			alignItems="center"
-		>
-			<Typography variant="h1">
-				{currentCustomer?.customerName}
-			</Typography>
-			{currentCustomer?.portfolio.map((portfolio: AssetAllocation) => (
-				<>
-					<Typography variant="h5">{`Asset: ${portfolio.assetName}`}</Typography>
-					<Typography variant="body1">{`Allocation: ${portfolio.allocation}`}</Typography>
-					<Typography variant="body1">{`Risk Score: ${portfolio.riskScore}`}</Typography>
-					<Typography variant="body1">{`Annual Return: ${portfolio.annualReturn}`}</Typography>
-					<Typography variant="body1">{`Investment Value: ${portfolio.investmentValue}`}</Typography>
-					<Typography variant="body1">{`Sector: ${portfolio.sector}`}</Typography>
-					<Typography variant="body1">{`Investment Type: ${portfolio.investmentType}`}</Typography>
-					<Typography variant="body1">{`Country: ${portfolio.country}`}</Typography>
-					<br />
-				</>
-			))}
-		</Grid>
+		<>
+			<Grid container justifyContent="start" alignItems="start">
+				<SideNavigation
+					customerName={currentCustomer?.customerName}
+					selectedView={selectedView}
+					setSelectedView={setSelectedView}
+				/>
+
+				<Grid
+					item
+					xs={12}
+					md={10}
+					container
+					justifyContent="center"
+					alignItems="center"
+					sx={{ padding: "2em 0" }}
+				>
+					{selectedView === "portfolio" ? (
+						<Grid
+							item
+							container
+							xs={12}
+							md={11}
+							spacing={3}
+							justifyContent="center"
+							alignItems="center"
+						>
+							<Grid
+								item
+								container
+								xs={12}
+								sx={{ overflow: "scroll", padding: "1em" }}
+								spacing={2}
+							>
+								{currentCustomer?.portfolio.map(
+									(portfolio, index) => (
+										<>
+											<Grid
+												item
+												xs={12}
+												sm={6}
+												md={4}
+												key={index}
+											>
+												<Card
+													sx={{ borderRadius: "5%" }}
+												>
+													<CardHeader
+														title={
+															portfolio.assetName
+														}
+													/>
+													<CardContent>
+														<Typography fontFamily="Open Sans, sans-serif">{`Allocation: ${portfolio.allocation}%`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Risk Score: ${portfolio.riskScore}`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Annual Return: ${portfolio.annualReturn}%`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Investment Value: $${portfolio.investmentValue}`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Sector: ${portfolio.sector}`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Investment Type: ${portfolio.investmentType}`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Country: ${portfolio.country}`}</Typography>
+													</CardContent>
+												</Card>
+											</Grid>
+										</>
+									)
+								)}
+							</Grid>
+
+							<Grid item xs={12} md={6} lg={4}>
+								<Card sx={{ borderRadius: "4%" }}>
+									<CardHeader title="Portfolio Allocation" />
+									<CardContent>
+										{allocationData &&
+											renderPieChart(allocationData)}
+									</CardContent>
+								</Card>
+							</Grid>
+							<Grid item xs={12} md={6} lg={8}>
+								<Card sx={{ borderRadius: "4%" }}>
+									<CardHeader title="Annual Return" />
+									<CardContent>
+										{annualReturnData &&
+											renderBarChart(
+												annualReturnData,
+												"Annual Return"
+											)}
+									</CardContent>
+								</Card>
+							</Grid>
+							<Grid item xs={12}>
+								<Card sx={{ borderRadius: "4%" }}>
+									<CardHeader title="Investment Value" />
+
+									<CardContent>
+										{investmentValueData &&
+											(investmentValueData.length > 1
+												? renderLineChart(
+														investmentValueData
+												  )
+												: renderBarChart(
+														investmentValueData,
+														"Investment Value"
+												  ))}
+									</CardContent>
+								</Card>
+							</Grid>
+
+							<Grid item xs={12} md={6}>
+								<Card sx={{ borderRadius: "4%" }}>
+									<CardHeader title="Investment Type" />
+									<CardContent>
+										{investmentTypeData &&
+											renderPolarChart(
+												investmentTypeData
+											)}
+									</CardContent>
+								</Card>
+							</Grid>
+							<Grid item xs={12} md={6}>
+								<Card sx={{ borderRadius: "4%" }}>
+									<CardHeader title="Sector" />
+									<CardContent>
+										{sectorData &&
+											renderPolarChart(sectorData)}
+									</CardContent>
+								</Card>
+							</Grid>
+						</Grid>
+					) : (
+						<Grid
+							item
+							container
+							direction="column"
+							justifyContent="center"
+							alignItems="center"
+							xs={12}
+							md={11}
+						>
+							<Grid item xs={12}>
+								<Card sx={{ padding: "1em" }}>
+									<CardHeader title="Risk Profile" />
+									<CardContent sx={{ margin: "1em" }}>
+										<Typography fontFamily="Open Sans, sans-serif">
+											<strong>Customer Name:</strong>{" "}
+											{currentCustomer?.customerName}
+										</Typography>
+										<Typography fontFamily="Open Sans, sans-serif">
+											<strong>
+												Total Portfolio Allocation:
+											</strong>{" "}
+											{currentCustomer?.portfolio.reduce(
+												(total, asset) =>
+													total + asset.allocation,
+												0
+											)}
+											%
+										</Typography>
+										<Typography fontFamily="Open Sans, sans-serif">
+											<strong>
+												Investment Risk Score:
+											</strong>{" "}
+											{calculateRiskInvestmentProfile(
+												currentCustomer
+											)}
+										</Typography>
+										<Typography fontFamily="Open Sans, sans-serif">
+											<strong>
+												Risk Scores by Asset:
+											</strong>
+										</Typography>
+										{currentCustomer?.portfolio.map(
+											(asset) => (
+												<Card
+													sx={{
+														my: 1,
+													}}
+													key={asset.assetName}
+												>
+													<CardContent>
+														<Typography fontFamily="Open Sans, sans-serif">
+															<strong>
+																Asset Name:
+															</strong>{" "}
+															{asset.assetName}
+														</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">
+															<strong>
+																Risk Score:
+															</strong>{" "}
+															{asset.riskScore}
+														</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">
+															<strong>
+																Allocation:
+															</strong>{" "}
+															{asset.allocation}%
+														</Typography>
+													</CardContent>
+												</Card>
+											)
+										)}
+									</CardContent>
+								</Card>
+							</Grid>
+						</Grid>
+					)}
+				</Grid>
+			</Grid>
+		</>
 	);
 };
 export default CustomerPage;

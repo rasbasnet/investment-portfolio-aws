@@ -1,6 +1,7 @@
 export interface CustomerData {
 	customerName: string;
 	portfolio: AssetAllocation[];
+	customerNumber?: number;
 }
 
 export interface AssetAllocation {
