@@ -147,14 +147,7 @@ const BasePage: React.FC<{}> = () => {
 											</div>
 										</Grid>
 									</Grid>
-									<Grid
-										item
-										xs={12}
-										md={5}
-										sx={{
-											padding: "2rem",
-										}}
-									>
+									<Grid item xs={12} md={5}>
 										<Box
 											sx={{
 												overflowY: "scroll",

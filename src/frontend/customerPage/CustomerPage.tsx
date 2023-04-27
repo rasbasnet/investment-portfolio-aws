@@ -7,7 +7,7 @@ import {
 import { fetchCustomerData } from "../utils/fetchUtil";
 import { Typography, Grid, CardContent, CardHeader, Card } from "@mui/material";
 import Chart from "chart.js/auto";
-import { Bar, Doughnut, Line } from "react-chartjs-2";
+import { Bar, Doughnut, Line, PolarArea, Radar } from "react-chartjs-2";
 import SideNavigation from "./Components/SideNavigation";
 Chart.register();
 const CustomerPage: React.FC<{}> = () => {
@@ -91,6 +91,22 @@ const CustomerPage: React.FC<{}> = () => {
 		};
 
 		return <Doughnut data={chartData} />;
+	};
+
+	const renderPolarChart = (data: { name: string; value: number }[]) => {
+		const chartData = {
+			labels: data.map((d) => d.name),
+			datasets: [
+				{
+					data: data.map((d) => d.value),
+					backgroundColor,
+					borderColor,
+					borderWidth: 1,
+				},
+			],
+		};
+
+		return <PolarArea data={chartData} />;
 	};
 
 	const renderBarChart = (
@@ -194,34 +210,46 @@ const CustomerPage: React.FC<{}> = () => {
 							justifyContent="center"
 							alignItems="center"
 						>
-							{currentCustomer?.portfolio.map(
-								(portfolio, index) => (
-									<>
-										<Grid
-											item
-											xs={12}
-											sm={6}
-											md={4}
-											key={index}
-										>
-											<Card sx={{ borderRadius: "5%" }}>
-												<CardHeader
-													title={portfolio.assetName}
-												/>
-												<CardContent>
-													<Typography fontFamily="Open Sans, sans-serif">{`Allocation: ${portfolio.allocation}%`}</Typography>
-													<Typography fontFamily="Open Sans, sans-serif">{`Risk Score: ${portfolio.riskScore}`}</Typography>
-													<Typography fontFamily="Open Sans, sans-serif">{`Annual Return: ${portfolio.annualReturn}%`}</Typography>
-													<Typography fontFamily="Open Sans, sans-serif">{`Investment Value: $${portfolio.investmentValue}`}</Typography>
-													<Typography fontFamily="Open Sans, sans-serif">{`Sector: ${portfolio.sector}`}</Typography>
-													<Typography fontFamily="Open Sans, sans-serif">{`Investment Type: ${portfolio.investmentType}`}</Typography>
-													<Typography fontFamily="Open Sans, sans-serif">{`Country: ${portfolio.country}`}</Typography>
-												</CardContent>
-											</Card>
-										</Grid>
-									</>
-								)
-							)}
+							<Grid
+								item
+								container
+								xs={12}
+								sx={{ overflow: "scroll", padding: "1em" }}
+								spacing={2}
+							>
+								{currentCustomer?.portfolio.map(
+									(portfolio, index) => (
+										<>
+											<Grid
+												item
+												xs={12}
+												sm={6}
+												md={4}
+												key={index}
+											>
+												<Card
+													sx={{ borderRadius: "5%" }}
+												>
+													<CardHeader
+														title={
+															portfolio.assetName
+														}
+													/>
+													<CardContent>
+														<Typography fontFamily="Open Sans, sans-serif">{`Allocation: ${portfolio.allocation}%`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Risk Score: ${portfolio.riskScore}`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Annual Return: ${portfolio.annualReturn}%`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Investment Value: $${portfolio.investmentValue}`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Sector: ${portfolio.sector}`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Investment Type: ${portfolio.investmentType}`}</Typography>
+														<Typography fontFamily="Open Sans, sans-serif">{`Country: ${portfolio.country}`}</Typography>
+													</CardContent>
+												</Card>
+											</Grid>
+										</>
+									)
+								)}
+							</Grid>
 
 							<Grid item xs={12} md={6} lg={4}>
 								<Card sx={{ borderRadius: "4%" }}>
@@ -267,7 +295,9 @@ const CustomerPage: React.FC<{}> = () => {
 									<CardHeader title="Investment Type" />
 									<CardContent>
 										{investmentTypeData &&
-											renderPieChart(investmentTypeData)}
+											renderPolarChart(
+												investmentTypeData
+											)}
 									</CardContent>
 								</Card>
 							</Grid>
@@ -276,7 +306,7 @@ const CustomerPage: React.FC<{}> = () => {
 									<CardHeader title="Sector" />
 									<CardContent>
 										{sectorData &&
-											renderPieChart(sectorData)}
+											renderPolarChart(sectorData)}
 									</CardContent>
 								</Card>
 							</Grid>

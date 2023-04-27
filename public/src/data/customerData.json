@@ -1,547 +1,570 @@
 [
-  {
-    "customerName": "John Doe",
-    "portfolio": [
-      {
-        "assetName": "Apple Inc.",
-        "allocation": 30,
-        "riskScore": 4,
-        "annualReturn": 12,
-        "investmentValue": 12000,
-        "sector": "Technology",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Amazon Inc.",
-        "allocation": 20,
-        "riskScore": 5,
-        "annualReturn": 15,
-        "investmentValue": 9000,
-        "sector": "E-commerce",
-        "country": "USA",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Jane Smith",
-    "portfolio": [
-      {
-        "assetName": "Tesla Inc.",
-        "allocation": 45,
-        "riskScore": 6,
-        "annualReturn": 20,
-        "investmentValue": 18000,
-        "sector": "Automotive",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Google Inc.",
-        "allocation": 30,
-        "riskScore": 4,
-        "annualReturn": 12,
-        "investmentValue": 15000,
-        "sector": "Technology",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Microsoft Inc.",
-        "allocation": 25,
-        "riskScore": 3,
-        "annualReturn": 10,
-        "investmentValue": 10000,
-        "sector": "Technology",
-        "country": "USA",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Oliver Brown",
-    "portfolio": [
-      {
-        "assetName": "NVIDIA Inc.",
-        "allocation": 35,
-        "riskScore": 5,
-        "annualReturn": 18,
-        "investmentValue": 11000,
-        "sector": "Semiconductor",
-        "country": "USA",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Sophia Davis",
-    "portfolio": [
-      {
-        "assetName": "Berkshire Hathaway Inc.",
-        "allocation": 50,
-        "riskScore": 3,
-        "annualReturn": 8,
-        "investmentValue": 20000,
-        "sector": "Finance",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Facebook Inc.",
-        "allocation": 35,
-        "riskScore": 4,
-        "annualReturn": 15,
-        "investmentValue": 14000,
-        "sector": "Technology",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "IBM Inc.",
-        "allocation": 15,
-        "riskScore": 3,
-        "annualReturn": 6,
-        "investmentValue": 6000,
-        "sector": "Technology",
-        "country": "USA",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Alice Johnson",
-    "portfolio": [
-      {
-        "assetName": "Netflix Inc.",
-        "allocation": 40,
-        "riskScore": 6,
-        "annualReturn": 17,
-        "investmentValue": 20000,
-        "sector": "Entertainment",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Walmart Inc.",
-        "allocation": 30,
-        "riskScore": 4,
-        "annualReturn": 11,
-        "investmentValue": 15000,
-        "sector": "Retail",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Coca-Cola Co.",
-        "allocation": 20,
-        "riskScore": 2,
-        "annualReturn": 5,
-        "investmentValue": 8000,
-        "sector": "Beverage",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Procter & Gamble Co.",
-        "allocation": 10,
-        "riskScore": 2,
-        "annualReturn": 6,
-        "investmentValue": 5000,
-        "sector": "Consumer Goods",
-        "country": "USA",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "David Lee",
-    "portfolio": [
-      {
-        "assetName": "Alphabet Inc.",
-        "allocation": 50,
-        "riskScore": 5,
-        "annualReturn": 14,
-        "investmentValue": 25000,
-        "sector": "Technology",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Johnson & Johnson",
-        "allocation": 30,
-        "riskScore": 3,
-        "annualReturn": 9,
-        "investmentValue": 18000,
-        "sector": "Healthcare",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Pfizer Inc.",
-        "allocation": 20,
-        "riskScore": 2,
-        "annualReturn": 6,
-        "investmentValue": 10000,
-        "sector": "Healthcare",
-        "country": "USA",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Michael Brown",
-    "portfolio": [
-      {
-        "assetName": "Goldman Sachs Group Inc.",
-        "allocation": 35,
-        "riskScore": 5,
-        "annualReturn": 11,
-        "investmentValue": 12000,
-        "sector": "Finance",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "American Express Co.",
-        "allocation": 25,
-        "riskScore": 3,
-        "annualReturn": 8,
-        "investmentValue": 9000,
-        "sector": "Finance",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "JPMorgan Chase & Co.",
-        "allocation": 20,
-        "riskScore": 4,
-        "annualReturn": 10,
-        "investmentValue": 8000,
-        "sector": "Finance",
-        "country": "USA",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Bank of America Corp.",
-        "allocation": 20,
-        "riskScore": 3,
-        "annualReturn": 7,
-        "investmentValue": 7000,
-        "sector": "Finance",
-        "country": "USA",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Lesley Scott",
-    "portfolio": [
-      {
-        "assetName": "Bank of Queensland",
-        "allocation": 30,
-        "riskScore": 3,
-        "annualReturn": 15,
-        "investmentValue": 2000,
-        "sector": "Banks",
-        "country": "Australia",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Compare the Market Australia",
-        "allocation": 40,
-        "riskScore": 2,
-        "annualReturn": 12,
-        "investmentValue": 1500,
-        "sector": "Insurance brokers",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Erika Pope",
-    "portfolio": [
-      {
-        "assetName": "Crown Resorts",
-        "allocation": 10,
-        "riskScore": 1,
-        "annualReturn": 20,
-        "investmentValue": 6000,
-        "sector": "Hotels",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Marta Gallagher",
-    "portfolio": [
-      {
-        "assetName": "Eraring Energy",
-        "allocation": 23,
-        "riskScore": 3,
-        "annualReturn": 13,
-        "investmentValue": 7000,
-        "sector": "Conventional electricity",
-        "country": "Australia",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Eagle Boys",
-        "allocation": 24,
-        "riskScore": 2,
-        "annualReturn": 17,
-        "investmentValue": 10000,
-        "sector": "Restaurant & bars",
-        "country": "Australia",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Elders",
-        "allocation": 21,
-        "riskScore": 2,
-        "annualReturn": 11,
-        "investmentValue": 6700,
-        "sector": "Farming & fishing",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Jonathan Peters",
-    "portfolio": [
-      {
-        "assetName": "Gunns",
-        "allocation": 15,
-        "riskScore": 4,
-        "annualReturn": 14,
-        "investmentValue": 7800,
-        "sector": "Forestry",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Cliff Glenn",
-    "portfolio": [
-      {
-        "assetName": "Freehand Group",
-        "allocation": 11,
-        "riskScore": 5,
-        "annualReturn": 15,
-        "investmentValue": 22000,
-        "sector": "Broadcasting & entertainment",
-        "country": "Australia",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Harvey Norman",
-        "allocation": 26,
-        "riskScore": 1,
-        "annualReturn": 19,
-        "investmentValue": 19000,
-        "sector": "Specialty retailers",
-        "country": "Australia",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Hoyts",
-        "allocation": 20,
-        "riskScore": 3,
-        "annualReturn": 8,
-        "investmentValue": 15000,
-        "sector": "Recreational services",
-        "country": "Australia",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Insurance Australia Group",
-        "allocation": 13,
-        "riskScore": 5,
-        "annualReturn": 29,
-        "investmentValue": 23000,
-        "sector": "Full line insurance",
-        "country": "Australia",
-        "investmentType": "Stock"
-      },
-      {
-        "assetName": "Lendlease",
-        "allocation": 12,
-        "riskScore": 4,
-        "annualReturn": 21,
-        "investmentValue": 7700,
-        "sector": "Heavy construction",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Cindy Phelps",
-    "portfolio": [
-      {
-        "assetName": "Lion",
-        "allocation": 8,
-        "riskScore": 5,
-        "annualReturn": 10,
-        "investmentValue": 5000,
-        "sector": "Food & beverage",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Darron Kelley",
-    "portfolio": [
-      {
-        "assetName": "Macquarie Atlas Roads",
-        "allocation": 12,
-        "riskScore": 4,
-        "annualReturn": 11,
-        "investmentValue": 5600,
-        "sector": "Heavy construction",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Greg Ferrell",
-    "portfolio": [
-      {
-        "assetName": "Metal storm",
-        "allocation": 8,
-        "riskScore": 3,
-        "annualReturn": 7,
-        "investmentValue": 11000,
-        "sector": "Defence",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Dolores Vaughan",
-    "portfolio": [
-      {
-        "assetName": "Newcastle Port Corporation",
-        "allocation": 9,
-        "riskScore": 2,
-        "annualReturn": 17,
-        "investmentValue": 9800,
-        "sector": "Transportation services",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Marrisa Rich",
-    "portfolio": [
-      {
-        "assetName": "Queensland Rail",
-        "allocation": 6,
-        "riskScore": 5,
-        "annualReturn": 9,
-        "investmentValue": 6600,
-        "sector": "Railroads",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Kieth Mcdowell",
-    "portfolio": [
-      {
-        "assetName": "Patrick Corporation",
-        "allocation": 20,
-        "riskScore": 3,
-        "annualReturn": 17,
-        "investmentValue": 8900,
-        "sector": "Delivery services",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Florine Grant",
-    "portfolio": [
-      {
-        "assetName": "Rinker Group",
-        "allocation": 15,
-        "riskScore": 4,
-        "annualReturn": 16,
-        "investmentValue": 8970,
-        "sector": "Building materials and fixtures",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Hershel Shields",
-    "portfolio": [
-      {
-        "assetName": "Red Rooster",
-        "allocation": 4,
-        "riskScore": 1,
-        "annualReturn": 30,
-        "investmentValue": 10000,
-        "sector": "Restaurants & bars",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Stewart Meyers",
-    "portfolio": [
-      {
-        "assetName": "Seven Network",
-        "allocation": 10,
-        "riskScore": 2,
-        "annualReturn": 18,
-        "investmentValue": 4000,
-        "sector": "Broadcasting & entertainment",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "Cheryl Larson",
-    "portfolio": [
-      {
-        "assetName": "Special Broadcasting Service",
-        "allocation": 13,
-        "riskScore": 2,
-        "annualReturn": 18,
-        "investmentValue": 9900,
-        "sector": "Broadcasting & entertainment",
-        "country": "Australia",
-        "investmentType": "Stock"
-      }
-    ]
-  },
-  {
-    "customerName": "James Castilio",
-    "portfolio": [
-      {
-        "assetName": "Amazon",
-        "allocation": 2000,
-        "riskScore": 3,
-        "annualReturn": 1000,
-        "investmentValue": 800,
-        "sector": "E-commerce",
-        "investmentType": "Stock",
-        "country": "Australia"
-      }
-    ]
-  }
+	{
+		"customerName": "John Doe",
+		"customerNumber": "1",
+		"portfolio": [
+			{
+				"assetName": "Apple Inc.",
+				"allocation": 30,
+				"riskScore": 4,
+				"annualReturn": 12,
+				"investmentValue": 12000,
+				"sector": "Technology",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Amazon Inc.",
+				"allocation": 20,
+				"riskScore": 5,
+				"annualReturn": 15,
+				"investmentValue": 9000,
+				"sector": "E-commerce",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Jane Smith",
+		"customerNumber": "2",
+		"portfolio": [
+			{
+				"assetName": "Tesla Inc.",
+				"allocation": 45,
+				"riskScore": 6,
+				"annualReturn": 20,
+				"investmentValue": 18000,
+				"sector": "Automotive",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Google Inc.",
+				"allocation": 30,
+				"riskScore": 4,
+				"annualReturn": 12,
+				"investmentValue": 15000,
+				"sector": "Technology",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Microsoft Inc.",
+				"allocation": 25,
+				"riskScore": 3,
+				"annualReturn": 10,
+				"investmentValue": 10000,
+				"sector": "Technology",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Oliver Brown",
+		"customerNumber": "3",
+		"portfolio": [
+			{
+				"assetName": "NVIDIA Inc.",
+				"allocation": 35,
+				"riskScore": 5,
+				"annualReturn": 18,
+				"investmentValue": 11000,
+				"sector": "Semiconductor",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Sophia Davis",
+		"customerNumber": "4",
+		"portfolio": [
+			{
+				"assetName": "Berkshire Hathaway Inc.",
+				"allocation": 50,
+				"riskScore": 3,
+				"annualReturn": 8,
+				"investmentValue": 20000,
+				"sector": "Finance",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Facebook Inc.",
+				"allocation": 35,
+				"riskScore": 4,
+				"annualReturn": 15,
+				"investmentValue": 14000,
+				"sector": "Technology",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "IBM Inc.",
+				"allocation": 15,
+				"riskScore": 3,
+				"annualReturn": 6,
+				"investmentValue": 6000,
+				"sector": "Technology",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Alice Johnson",
+		"customerNumber": "5",
+		"portfolio": [
+			{
+				"assetName": "Netflix Inc.",
+				"allocation": 40,
+				"riskScore": 6,
+				"annualReturn": 17,
+				"investmentValue": 20000,
+				"sector": "Entertainment",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Walmart Inc.",
+				"allocation": 30,
+				"riskScore": 4,
+				"annualReturn": 11,
+				"investmentValue": 15000,
+				"sector": "Retail",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Coca-Cola Co.",
+				"allocation": 20,
+				"riskScore": 2,
+				"annualReturn": 5,
+				"investmentValue": 8000,
+				"sector": "Beverage",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Procter & Gamble Co.",
+				"allocation": 10,
+				"riskScore": 2,
+				"annualReturn": 6,
+				"investmentValue": 5000,
+				"sector": "Consumer Goods",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "David Lee",
+		"customerNumber": "6",
+		"portfolio": [
+			{
+				"assetName": "Alphabet Inc.",
+				"allocation": 50,
+				"riskScore": 5,
+				"annualReturn": 14,
+				"investmentValue": 25000,
+				"sector": "Technology",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Johnson & Johnson",
+				"allocation": 30,
+				"riskScore": 3,
+				"annualReturn": 9,
+				"investmentValue": 18000,
+				"sector": "Healthcare",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Pfizer Inc.",
+				"allocation": 20,
+				"riskScore": 2,
+				"annualReturn": 6,
+				"investmentValue": 10000,
+				"sector": "Healthcare",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Michael Brown",
+		"customerNumber": "7",
+		"portfolio": [
+			{
+				"assetName": "Goldman Sachs Group Inc.",
+				"allocation": 35,
+				"riskScore": 5,
+				"annualReturn": 11,
+				"investmentValue": 12000,
+				"sector": "Finance",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "American Express Co.",
+				"allocation": 25,
+				"riskScore": 3,
+				"annualReturn": 8,
+				"investmentValue": 9000,
+				"sector": "Finance",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "JPMorgan Chase & Co.",
+				"allocation": 20,
+				"riskScore": 4,
+				"annualReturn": 10,
+				"investmentValue": 8000,
+				"sector": "Finance",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Bank of America Corp.",
+				"allocation": 20,
+				"riskScore": 3,
+				"annualReturn": 7,
+				"investmentValue": 7000,
+				"sector": "Finance",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Lesley Scott",
+		"customerNumber": "8",
+		"portfolio": [
+			{
+				"assetName": "Bank of Queensland",
+				"allocation": 30,
+				"riskScore": 3,
+				"annualReturn": 15,
+				"investmentValue": 2000,
+				"sector": "Banks",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Compare the Market Australia",
+				"allocation": 40,
+				"riskScore": 2,
+				"annualReturn": 12,
+				"investmentValue": 1500,
+				"sector": "Insurance brokers",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Erika Pope",
+		"customerNumber": "9",
+		"portfolio": [
+			{
+				"assetName": "Crown Resorts",
+				"allocation": 10,
+				"riskScore": 1,
+				"annualReturn": 20,
+				"investmentValue": 6000,
+				"sector": "Hotels",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Marta Gallagher",
+		"customerNumber": "10",
+		"portfolio": [
+			{
+				"assetName": "Eraring Energy",
+				"allocation": 23,
+				"riskScore": 3,
+				"annualReturn": 13,
+				"investmentValue": 7000,
+				"sector": "Conventional electricity",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Eagle Boys",
+				"allocation": 24,
+				"riskScore": 2,
+				"annualReturn": 17,
+				"investmentValue": 10000,
+				"sector": "Restaurant & bars",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Elders",
+				"allocation": 21,
+				"riskScore": 2,
+				"annualReturn": 11,
+				"investmentValue": 6700,
+				"sector": "Farming & fishing",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Jonathan Peters",
+		"customerNumber": "11",
+		"portfolio": [
+			{
+				"assetName": "Gunns",
+				"allocation": 15,
+				"riskScore": 4,
+				"annualReturn": 14,
+				"investmentValue": 7800,
+				"sector": "Forestry",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Cliff Glenn",
+		"customerNumber": "12",
+		"portfolio": [
+			{
+				"assetName": "Freehand Group",
+				"allocation": 11,
+				"riskScore": 5,
+				"annualReturn": 15,
+				"investmentValue": 22000,
+				"sector": "Broadcasting & entertainment",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Harvey Norman",
+				"allocation": 26,
+				"riskScore": 1,
+				"annualReturn": 19,
+				"investmentValue": 19000,
+				"sector": "Specialty retailers",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Hoyts",
+				"allocation": 20,
+				"riskScore": 3,
+				"annualReturn": 8,
+				"investmentValue": 15000,
+				"sector": "Recreational services",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Insurance Australia Group",
+				"allocation": 13,
+				"riskScore": 5,
+				"annualReturn": 29,
+				"investmentValue": 23000,
+				"sector": "Full line insurance",
+				"country": "Australia",
+				"investmentType": "Stock"
+			},
+			{
+				"assetName": "Lendlease",
+				"allocation": 12,
+				"riskScore": 4,
+				"annualReturn": 21,
+				"investmentValue": 7700,
+				"sector": "Heavy construction",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Cindy Phelps",
+		"customerNumber": "13",
+		"portfolio": [
+			{
+				"assetName": "Lion",
+				"allocation": 8,
+				"riskScore": 5,
+				"annualReturn": 10,
+				"investmentValue": 5000,
+				"sector": "Food & beverage",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Darron Kelley",
+		"customerNumber": "14",
+		"portfolio": [
+			{
+				"assetName": "Macquarie Atlas Roads",
+				"allocation": 12,
+				"riskScore": 4,
+				"annualReturn": 11,
+				"investmentValue": 5600,
+				"sector": "Heavy construction",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Greg Ferrell",
+		"customerNumber": "15",
+		"portfolio": [
+			{
+				"assetName": "Metal storm",
+				"allocation": 8,
+				"riskScore": 3,
+				"annualReturn": 7,
+				"investmentValue": 11000,
+				"sector": "Defence",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Dolores Vaughan",
+		"customerNumber": "16",
+		"portfolio": [
+			{
+				"assetName": "Newcastle Port Corporation",
+				"allocation": 9,
+				"riskScore": 2,
+				"annualReturn": 17,
+				"investmentValue": 9800,
+				"sector": "Transportation services",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Marrisa Rich",
+		"customerNumber": "17",
+		"portfolio": [
+			{
+				"assetName": "Queensland Rail",
+				"allocation": 6,
+				"riskScore": 5,
+				"annualReturn": 9,
+				"investmentValue": 6600,
+				"sector": "Railroads",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Kieth Mcdowell",
+		"customerNumber": "18",
+		"portfolio": [
+			{
+				"assetName": "Patrick Corporation",
+				"allocation": 20,
+				"riskScore": 3,
+				"annualReturn": 17,
+				"investmentValue": 8900,
+				"sector": "Delivery services",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Florine Grant",
+		"customerNumber": "19",
+		"portfolio": [
+			{
+				"assetName": "Rinker Group",
+				"allocation": 15,
+				"riskScore": 4,
+				"annualReturn": 16,
+				"investmentValue": 8970,
+				"sector": "Building materials and fixtures",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Hershel Shields",
+		"customerNumber": "20",
+		"portfolio": [
+			{
+				"assetName": "Red Rooster",
+				"allocation": 4,
+				"riskScore": 1,
+				"annualReturn": 30,
+				"investmentValue": 10000,
+				"sector": "Restaurants & bars",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Stewart Meyers",
+		"customerNumber": "21",
+		"portfolio": [
+			{
+				"assetName": "Seven Network",
+				"allocation": 10,
+				"riskScore": 2,
+				"annualReturn": 18,
+				"investmentValue": 4000,
+				"sector": "Broadcasting & entertainment",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "Cheryl Larson",
+		"customerNumber": "22",
+		"portfolio": [
+			{
+				"assetName": "Special Broadcasting Service",
+				"allocation": 13,
+				"riskScore": 2,
+				"annualReturn": 18,
+				"investmentValue": 9900,
+				"sector": "Broadcasting & entertainment",
+				"country": "Australia",
+				"investmentType": "Stock"
+			}
+		]
+	},
+	{
+		"customerName": "James Castilio",
+		"customerNumber": "23",
+		"portfolio": [
+			{
+				"assetName": "Amazon",
+				"allocation": 2000,
+				"riskScore": 3,
+				"annualReturn": 1000,
+				"investmentValue": 800,
+				"sector": "E-commerce",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	}
 ]
