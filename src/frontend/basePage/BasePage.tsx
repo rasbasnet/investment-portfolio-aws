@@ -91,7 +91,7 @@ const BasePage: React.FC<{}> = () => {
 										overflowY: "scroll",
 									}}
 								>
-									<Grid container rowGap="1rem">
+									<Grid container rowGap="1rem" spacing={2}>
 										<Grid
 											item
 											xs={12}
@@ -105,7 +105,7 @@ const BasePage: React.FC<{}> = () => {
 												alignItems="center"
 												className="screenhome"
 												item
-												height="45vh"
+												height="60vh"
 												width="80vw"
 											>
 												<div className="screenhome-image"></div>
@@ -203,7 +203,10 @@ const BasePage: React.FC<{}> = () => {
 														item
 														textAlign="center"
 														overflow="scroll"
-														height="40vh"
+														height="60vh"
+														justifyContent="center"
+														alignItems="center"
+														container
 													>
 														{customerData.map(
 															(
