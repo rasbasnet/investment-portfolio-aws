@@ -1,4 +1,4 @@
-import { Grid, Typography, Paper, Box, Avatar, Button } from "@mui/material";
+import { Grid, Typography, Paper, Box, Avatar, Button, Card, Divider } from "@mui/material";
 import SearchBar from "../searchBar/SearchBar";
 import { useEffect, useState } from "react";
 import { addCustomerData, fetchCustomerData } from "../utils/fetchUtil";
@@ -16,6 +16,7 @@ import {
 } from "@mui/icons-material";
 import AddCustomerModal from "../addCustomerModal/AddCustomerModal";
 import React from "react";
+//import { Divider } from "@mui/joy";
 const BasePage: React.FC<{}> = () => {
 	const [customerData, setCustomerData] = useState<CustomerData[] | null>(
 		null
@@ -51,7 +52,7 @@ const BasePage: React.FC<{}> = () => {
 			<Element
 				name="section1"
 				style={{
-					minHeight: "110vh",
+					minHeight: "105vh",
 				}}
 			>
 				<Grid
@@ -67,200 +68,195 @@ const BasePage: React.FC<{}> = () => {
 					}}
 				>
 					<SearchBar customerData={customerData} />
-					<Grid
-						item
-						container
-						justifyContent="center"
-						alignItems="center"
-					>
-						<Grid item xs={12} md={10}>
-							<Paper
-								elevation={8}
-								sx={{
-									padding: "2rem",
-									maxHeight: "70vh",
-									overflowY: "scroll",
-								}}
-							>
-								<Grid container>
-									<Grid
-										item
-										xs={12}
-										md={7}
-										sx={{
-											maxHeight: "60vh",
-										}}
-									>
-										<Grid
-											item
-											container
-											justifyContent="center"
-											alignItems="center"
-											xs={12}
-											className="screenhome"
-										>
-											<div className="screenhome-image"></div>
-											<div className="screenhome-overlay"></div>
-											<div className="screenhome-content">
-												<i className="screenhome-icon fa-brands fa-codepen"></i>
-												<div className="screenhome-user">
-													{currentCustomer && (
-														<>
-															<Avatar
-																className="avatar-animation"
-																sx={{
-																	width: "200px",
-																	height: "200px",
-																	backgroundColor:
-																		"black",
-																}}
-															>
-																<AccountCircleIcon
+					<Grid item>
+						<Grid container
+							alignItems="center"
+							justifyContent="center">
+							<Grid item
+								xs={12} md={10}>
+								<Paper
+									elevation={8}
+									sx={{
+										padding: "2rem",
+										maxHeight: "80vh",
+										//overflowY: "scroll",
+									}}>
+									<Grid container>
+										<Grid item xs={12} md={7} maxHeight='65vh'>
+											<Grid
+												container
+												justifyContent="center"
+												alignItems="center"
+												className="screenhome"
+												xs={12}>
+												<div className="screenhome-image"></div>
+												<div className="screenhome-overlay"></div>
+												<div className="screenhome-content">
+													<i className="screenhome-icon fa-brands fa-codepen"></i>
+													<div className="screenhome-user">
+														{currentCustomer && (
+															<>
+																<Avatar
+																	className="avatar-animation"
 																	sx={{
-																		fontSize:
-																			"130px",
+																		width: "200px",
+																		height: "200px",
+																		backgroundColor:
+																			"black",
 																	}}
-																/>
-															</Avatar>
-															<Typography
-																variant="h3"
-																className="customerName-animation link"
-															>
-																{
-																	currentCustomer.customerName
-																}
-															</Typography>
-															<Button
-																className="viewPortfolioBtn"
-																onClick={() =>
-																	window.location.assign(
-																		`/investment-portfolios/customers/?customer=${currentCustomer.customerName}`
-																	)
-																}
-																color="primary"
-																variant="contained"
-															>
-																View Customer
-																Portfolio
-															</Button>
-														</>
-													)}
+																>
+																	<AccountCircleIcon
+																		sx={{
+																			fontSize:
+																				"130px",
+																		}}
+																	/>
+																</Avatar>
+																<Typography
+																	variant="h3"
+																	className="customerName-animation link"
+																>
+																	{
+																		currentCustomer.customerName
+																	}
+																</Typography>
+																<Button
+																	className="viewPortfolioBtn"
+																	onClick={() =>
+																		window.location.assign(
+																			`/investment-portfolios/customers/?customer=${currentCustomer.customerName}`
+																		)
+																	}
+																	color="primary"
+																	variant="contained"
+																>
+																	View Customer
+																	Portfolio
+																</Button>
+															</>
+														)}
+													</div>
 												</div>
-											</div>
+											</Grid>
 										</Grid>
-									</Grid>
-									<Grid item xs={12} md={5}>
-										<Box
-											sx={{
-												overflowY: "scroll",
-												borderRight: "1px solid #ccc",
-												paddingLeft: "1rem",
-												maxHeight: "60vh",
-												textAlign: "center",
-											}}
-										>
-											<Typography variant="h6">
-												Customers:
-											</Typography>
-											<Button
-												onClick={handleAddCustomerModal}
-												color="primary"
-												variant="outlined"
-											>
-												+ Add a customer
-											</Button>
-											{customerData.map(
-												(
-													customer: CustomerData,
-													index
-												) => (
-													<Button
-														className="customer-button"
-														sx={{
-															width: "90%",
-															padding: "20px",
-															margin: "10px 0",
-														}}
-														key={index}
-														color="primary"
-														onClick={() =>
-															setCurrentCustomer(
-																customer
-															)
-														}
-														variant="contained"
-													>
+										<Grid item xs={12} md={5} height='65vh'>
+											<Box height='100%'>
+												<Grid container height='100%'>
+													<Grid item xs={12}>
+														<Grid container alignItems="center" paddingX="20px" xs={12}>
+															<Grid item display="flex" xs={6} >
+																<Typography variant="h6">
+																	Customers:
+																</Typography>
+															</Grid>
+															<Grid item display="flex" justifyContent="flex-end" xs={6}>
+																<Button
+																	onClick={handleAddCustomerModal}
+																	color="primary"
+																	variant="outlined">
+																	+ Add a customer
+																</Button>
+															</Grid>
+														</Grid>
+													</Grid>
+													<Grid item>
 														<Box
 															sx={{
-																display: "flex",
-																alignItems:
-																	"center",
-															}}
-														>
-															<AccountCircleIcon
-																sx={{
-																	marginRight:
-																		"0.5rem",
-																}}
-															/>
-															<Typography variant="body1">
-																{
-																	customer.customerName
-																}
-															</Typography>
+																textAlign: "center",
+																overflowY: "scroll",
+															}}>
+															{customerData.map(
+																(
+																	customer: CustomerData,
+																	index
+																) => (
+																	<Button
+																		className="customer-button"
+																		sx={{
+																			width: "90%",
+																			padding: "20px",
+																			margin: "10px 0",
+																		}}
+																		key={index}
+																		color="primary"
+																		onClick={() =>
+																			setCurrentCustomer(
+																				customer
+																			)
+																		}
+																		variant="contained"
+																	>
+																		<Box
+																			sx={{
+																				display: "flex",
+																				alignItems:
+																					"center",
+																			}}
+																		>
+																			<AccountCircleIcon
+																				sx={{
+																					marginRight:
+																						"0.5rem",
+																				}}
+																			/>
+																			<Typography variant="body1">
+																				{
+																					customer.customerName
+																				}
+																			</Typography>
+																		</Box>
+																	</Button>
+																)
+															)}
 														</Box>
-													</Button>
-												)
-											)}
-										</Box>
+													</Grid>
+												</Grid>
+											</Box>
+										</Grid>
 									</Grid>
-								</Grid>
-							</Paper>
+								</Paper>
+							</Grid>
 						</Grid>
 					</Grid>
-					<Grid item>
-						<Link
-							to="section2"
-							spy={true}
-							smooth={true}
-							offset={0}
-							duration={1000}
-						>
-							<KeyboardDoubleArrowDown fontSize="large" />
-						</Link>
-					</Grid>
-				</Grid>
-			</Element>
+				</Grid >
+				<Grid item>
+					<Link
+						to="section2"
+						spy={true}
+						smooth={true}
+						offset={0}
+						duration={350}
+					>
+						<KeyboardDoubleArrowDown fontSize="large" />
+					</Link>
+				</Grid >
+			</Element >
 			<Element name="section2">
-				<Grid
-					container
-					style={{
-						backgroundColor: "#f0eaf7",
-						minHeight: "100vh",
-					}}
-					item
-				>
+				<Box minHeight="100vh">
+
 					<Grid
-						item
 						container
 						direction="column"
 						alignItems="center"
-						spacing={3}
+						//spacing={3}
 						className="info-section"
 						sx={{
+							margin: 0,
 							textAlign: "center",
 							padding: "2rem",
 							backgroundColor: "#7d4db8", // 30% - Darker purple
 						}}
 					>
-						<Grid item>
-							<Typography
-								variant="h3"
-								color="primary"
-								sx={{ color: "#ffffff" }}
-							>
-								Investment Dashboard
-							</Typography>
+						<Grid item width="100%">
+							<Divider variant="middle" sx={{ "&::before, &::after": { borderColor: "#ffffff" } }}>
+								<Typography
+									variant="h3"
+									color="primary"
+									sx={{ color: "#ffffff" }}
+								>
+									Investment Dashboard
+								</Typography>
+							</Divider>
 						</Grid>
 						<Grid item>
 							<Typography variant="h5" sx={{ color: "#ffffff" }}>
@@ -270,7 +266,7 @@ const BasePage: React.FC<{}> = () => {
 						</Grid>
 					</Grid>
 
-					<Grid item container justifyContent="center">
+					<Grid item container alignItems="stretch" justifyContent="center">
 						<Grid
 							item
 							md={4}
@@ -278,7 +274,7 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Paper elevation={4} sx={{ padding: "2rem" }}>
+							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
 								<CallMade fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Easy Access
@@ -287,7 +283,7 @@ const BasePage: React.FC<{}> = () => {
 									Quickly access customer profiles and their
 									respective investment portfolios.
 								</Typography>
-							</Paper>
+							</Card>
 						</Grid>
 						<Grid
 							item
@@ -296,7 +292,7 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Paper elevation={4} sx={{ padding: "2rem" }}>
+							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
 								<Security fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Risk Management
@@ -305,7 +301,7 @@ const BasePage: React.FC<{}> = () => {
 									Monitor risk profiles of each customer and
 									manage their investments accordingly.
 								</Typography>
-							</Paper>
+							</Card>
 						</Grid>
 						<Grid
 							item
@@ -314,7 +310,7 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Paper elevation={4} sx={{ padding: "2rem" }}>
+							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
 								<ShowChart fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Visual Analytics
@@ -323,17 +319,14 @@ const BasePage: React.FC<{}> = () => {
 									Gain insights through up-to-date analytics
 									and make informed investment decisions.
 								</Typography>
-							</Paper>
+							</Card>
 						</Grid>
 					</Grid>
-					<br></br>
-					<br></br>
 					<Grid
 						item
 						container
 						direction="column"
 						alignItems="center"
-						spacing={3}
 						className="info-section"
 						sx={{
 							textAlign: "center",
@@ -341,14 +334,16 @@ const BasePage: React.FC<{}> = () => {
 							backgroundColor: "#7d4db8",
 						}}
 					>
-						<Grid item>
-							<Typography
-								variant="h3"
-								color="primary"
-								sx={{ color: "#ffffff" }}
-							>
-								Take Control of Investments
-							</Typography>
+						<Grid item width="100%">
+							<Divider variant="middle" sx={{ "&::before, &::after": { borderColor: "#ffffff" } }}>
+								<Typography
+									variant="h3"
+									color="primary"
+									sx={{ color: "#ffffff" }}
+								>
+									Take Control of Investments
+								</Typography>
+							</Divider>
 						</Grid>
 						<Grid item>
 							<Typography variant="h5" sx={{ color: "#ffffff" }}>
@@ -358,7 +353,7 @@ const BasePage: React.FC<{}> = () => {
 						</Grid>
 					</Grid>
 
-					<Grid item container justifyContent="center">
+					<Grid item container alignItems="stretch" justifyContent="center">
 						<Grid
 							item
 							md={4}
@@ -366,7 +361,7 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Paper elevation={4} sx={{ padding: "2rem" }}>
+							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
 								<Assessment fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Innovative Strategies
@@ -375,7 +370,7 @@ const BasePage: React.FC<{}> = () => {
 									We employ cutting-edge investment strategies
 									to maximize returns while managing risk.
 								</Typography>
-							</Paper>
+							</Card>
 						</Grid>
 						<Grid
 							item
@@ -384,7 +379,7 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Paper elevation={4} sx={{ padding: "2rem" }}>
+							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
 								<People fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Client-Centric Approach
@@ -394,7 +389,7 @@ const BasePage: React.FC<{}> = () => {
 									understanding your unique goals and
 									objectives.
 								</Typography>
-							</Paper>
+							</Card>
 						</Grid>
 						<Grid
 							item
@@ -403,7 +398,7 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Paper elevation={4} sx={{ padding: "2rem" }}>
+							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
 								<Security fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Secure & Trusted
@@ -412,47 +407,32 @@ const BasePage: React.FC<{}> = () => {
 									We prioritize the security of our clients'
 									information and assets, earning their trust.
 								</Typography>
-							</Paper>
+							</Card>
 						</Grid>
 					</Grid>
-					<Grid
-						item
-						container
-						direction="column"
-						alignItems="center"
-						spacing={3}
-						sx={{
-							textAlign: "center",
-						}}
-					>
-						<Grid item>
-							<Typography variant="h5" sx={{ color: "#4c2f7a" }}>
-								About Asset & Wealth Services
-							</Typography>
-						</Grid>
-						<Grid item sx={{ width: "70%" }}>
-							<Typography variant="body1" sx={{ color: "black" }}>
-								Located in Hawthorn, Victoria, Asset & Wealth
-								Services is a leading investment management firm
-								with a strong focus on providing tailored
-								solutions to our clients. With years of
-								experience in the industry, our team of experts
-								works closely with clients to understand their
-								needs and goals, offering personalized
-								investment strategies and risk management.
-							</Typography>
-						</Grid>
-						<br></br>
-						<br></br>
-					</Grid>
-				</Grid>
+					<Divider variant="middle">
+						<Typography variant="h5" sx={{ color: "#4c2f7a" }}>
+							About Asset & Wealth Services
+						</Typography>
+					</Divider>
+					<Typography variant="body1" width="80%" margin="auto" paddingBottom={2} textAlign="center" sx={{ color: "black" }}>
+						Located in Hawthorn, Victoria, Asset & Wealth
+						Services is a leading investment management firm
+						with a strong focus on providing tailored
+						solutions to our clients. With years of
+						experience in the industry, our team of experts
+						works closely with clients to understand their
+						needs and goals, offering personalized
+						investment strategies and risk management.
+					</Typography>
+				</Box>
 			</Element>
 			<AddCustomerModal
 				open={showAddCustomerModal}
 				handleClose={() => setShowAddCustomerModal(false)}
 				addCustomer={handleSubmitCustomer}
 			/>
-		</Grid>
+		</Grid >
 	) : (
 		<div>Error fetching data. Please refresh</div>
 	);
