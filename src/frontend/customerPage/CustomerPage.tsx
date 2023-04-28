@@ -7,8 +7,10 @@ import {
 import { fetchCustomerData } from "../utils/fetchUtil";
 import { Typography, Grid, CardContent, CardHeader, Card } from "@mui/material";
 import Chart from "chart.js/auto";
-import { Bar, Doughnut, Line, PolarArea, Radar } from "react-chartjs-2";
+import { Bar, Doughnut, Line, PolarArea } from "react-chartjs-2";
 import SideNavigation from "./Components/SideNavigation";
+import { keyframes, useTheme } from "@mui/material/styles";
+
 Chart.register();
 const CustomerPage: React.FC<{}> = () => {
 	const [searchParams] = useSearchParams();
@@ -57,29 +59,34 @@ const CustomerPage: React.FC<{}> = () => {
 		value: portfolio.annualReturn,
 	}));
 
+	const riskProfileData = currentCustomer?.portfolio.map((portfolio) => ({
+		name: portfolio.assetName,
+		value: portfolio.riskScore,
+	}));
+
 	const backgroundColor = [
-		"rgba(255, 99, 132, 0.2)",
-		"rgba(255, 159, 64, 0.2)",
-		"rgba(255, 205, 86, 0.2)",
-		"rgba(75, 192, 192, 0.2)",
+		"rgba(106, 80, 161, 0.2)",
+		"rgba(172, 97, 207, 0.2)",
+		"rgba(240, 137, 255, 0.2)",
 		"rgba(54, 162, 235, 0.2)",
-		"rgba(153, 102, 255, 0.2)",
-		"rgba(201, 203, 207, 0.2)",
+		"rgba(255, 159, 64, 0.2)",
+		"rgba(255, 99, 132, 0.2)",
+		"rgba(75, 192, 192, 0.2)",
 	];
 
 	const borderColor = [
-		"rgb(255, 99, 132)",
-		"rgb(255, 159, 64)",
-		"rgb(255, 205, 86)",
-		"rgb(75, 192, 192)",
+		"rgb(106, 80, 161)",
+		"rgb(172, 97, 207)",
+		"rgb(240, 137, 255)",
 		"rgb(54, 162, 235)",
-		"rgb(153, 102, 255)",
-		"rgb(201, 203, 207)",
+		"rgb(255, 159, 64)",
+		"rgb(255, 99, 132)",
+		"rgb(75, 192, 192)",
 	];
 
 	const renderPieChart = (data: { name: string; value: number }[]) => {
 		const chartData = {
-			labels: data.map((d) => d.name),
+			labels: data.map((d) => `${d.name} (%)`),
 			datasets: [
 				{
 					data: data.map((d) => d.value),
@@ -140,7 +147,7 @@ const CustomerPage: React.FC<{}> = () => {
 			labels: data.map((d) => d.name),
 			datasets: [
 				{
-					label: "Investment Value",
+					label: "Investment Value ($)",
 					data: data.map((d) => d.value),
 					fill: false,
 					borderColor: "#8884d8",
@@ -158,6 +165,33 @@ const CustomerPage: React.FC<{}> = () => {
 		return <Line data={chartData} options={options} />;
 	};
 
+	const renderRiskProfileChart = (
+		data: { name: string; value: number }[],
+		data2: { name: string; value: number }[]
+	) => {
+		const chartData = {
+			labels: data.map((d) => d.name),
+			datasets: [
+				{
+					label: "Risk Score (%)",
+					data: data.map((d) => d.value),
+					borderColor,
+					backgroundColor,
+					fill: false,
+					borderWidth: 1,
+				},
+				{
+					label: "Allocation (%)",
+					data: data2.map((d) => d.value),
+					borderColor,
+					backgroundColor,
+					fill: false,
+					borderWidth: 1,
+				},
+			],
+		};
+		return <Bar data={chartData} />;
+	};
 	useEffect(() => {
 		async function getCustomerData() {
 			const data = await fetchCustomerData();
@@ -175,12 +209,22 @@ const CustomerPage: React.FC<{}> = () => {
 		var totalWeightedRiskScore = 0;
 		var totalWeightedAllocation = 0;
 
-		currentCustomer?.portfolio.map((asset) => {
+		currentCustomer?.portfolio.forEach((asset) => {
 			totalWeightedRiskScore += asset.allocation * asset.riskScore;
 			totalWeightedAllocation += asset.allocation;
 		});
 		return totalWeightedRiskScore / totalWeightedAllocation;
 	};
+	const theme = useTheme();
+
+	const fadeIn = keyframes`
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	`;
 
 	return (
 		<>
@@ -228,7 +272,9 @@ const CustomerPage: React.FC<{}> = () => {
 												key={index}
 											>
 												<Card
-													sx={{ borderRadius: "5%" }}
+													sx={{
+														borderRadius: "5%",
+													}}
 												>
 													<CardHeader
 														title={
@@ -236,13 +282,13 @@ const CustomerPage: React.FC<{}> = () => {
 														}
 													/>
 													<CardContent>
-														<Typography fontFamily="Open Sans, sans-serif">{`Allocation: ${portfolio.allocation}%`}</Typography>
-														<Typography fontFamily="Open Sans, sans-serif">{`Risk Score: ${portfolio.riskScore}`}</Typography>
-														<Typography fontFamily="Open Sans, sans-serif">{`Annual Return: ${portfolio.annualReturn}%`}</Typography>
-														<Typography fontFamily="Open Sans, sans-serif">{`Investment Value: $${portfolio.investmentValue}`}</Typography>
-														<Typography fontFamily="Open Sans, sans-serif">{`Sector: ${portfolio.sector}`}</Typography>
-														<Typography fontFamily="Open Sans, sans-serif">{`Investment Type: ${portfolio.investmentType}`}</Typography>
-														<Typography fontFamily="Open Sans, sans-serif">{`Country: ${portfolio.country}`}</Typography>
+														<Typography>{`Allocation: ${portfolio.allocation}%`}</Typography>
+														<Typography>{`Risk Score: ${portfolio.riskScore}%`}</Typography>
+														<Typography>{`Annual Return: $${portfolio.annualReturn}`}</Typography>
+														<Typography>{`Investment Value: $${portfolio.investmentValue}`}</Typography>
+														<Typography>{`Sector: ${portfolio.sector}`}</Typography>
+														<Typography>{`Investment Type: ${portfolio.investmentType}`}</Typography>
+														<Typography>{`Country: ${portfolio.country}`}</Typography>
 													</CardContent>
 												</Card>
 											</Grid>
@@ -252,31 +298,82 @@ const CustomerPage: React.FC<{}> = () => {
 							</Grid>
 
 							<Grid item xs={12} md={6} lg={4}>
-								<Card sx={{ borderRadius: "4%" }}>
+								<Card
+									sx={{
+										borderRadius: "4%",
+										height: "400px",
+										justifyContent: "center",
+										alignItems: "center",
+										display: "flex",
+										flexDirection: "column",
+									}}
+								>
 									<CardHeader title="Portfolio Allocation" />
-									<CardContent>
+									<CardContent
+										sx={{
+											width: "80%",
+											height: "80%",
+											justifyContent: "center",
+											alignItems: "center",
+											display: "flex",
+										}}
+									>
 										{allocationData &&
 											renderPieChart(allocationData)}
 									</CardContent>
 								</Card>
 							</Grid>
 							<Grid item xs={12} md={6} lg={8}>
-								<Card sx={{ borderRadius: "4%" }}>
+								<Card
+									sx={{
+										borderRadius: "4%",
+										height: "400px",
+										justifyContent: "center",
+										alignItems: "center",
+										display: "flex",
+										flexDirection: "column",
+									}}
+								>
 									<CardHeader title="Annual Return" />
-									<CardContent>
+									<CardContent
+										sx={{
+											width: "80%",
+											height: "80%",
+											justifyContent: "center",
+											alignItems: "center",
+											display: "flex",
+										}}
+									>
 										{annualReturnData &&
 											renderBarChart(
 												annualReturnData,
-												"Annual Return"
+												"Annual Return ($)"
 											)}
 									</CardContent>
 								</Card>
 							</Grid>
 							<Grid item xs={12}>
-								<Card sx={{ borderRadius: "4%" }}>
+								<Card
+									sx={{
+										borderRadius: "4%",
+										height: "600px",
+										justifyContent: "center",
+										alignItems: "center",
+										display: "flex",
+										flexDirection: "column",
+									}}
+								>
 									<CardHeader title="Investment Value" />
 
-									<CardContent>
+									<CardContent
+										sx={{
+											width: "80%",
+											height: "80%",
+											justifyContent: "center",
+											alignItems: "center",
+											display: "flex",
+										}}
+									>
 										{investmentValueData &&
 											(investmentValueData.length > 1
 												? renderLineChart(
@@ -284,16 +381,33 @@ const CustomerPage: React.FC<{}> = () => {
 												  )
 												: renderBarChart(
 														investmentValueData,
-														"Investment Value"
+														"Investment Value ($)"
 												  ))}
 									</CardContent>
 								</Card>
 							</Grid>
 
 							<Grid item xs={12} md={6}>
-								<Card sx={{ borderRadius: "4%" }}>
+								<Card
+									sx={{
+										borderRadius: "4%",
+										height: "400px",
+										justifyContent: "center",
+										alignItems: "center",
+										display: "flex",
+										flexDirection: "column",
+									}}
+								>
 									<CardHeader title="Investment Type" />
-									<CardContent>
+									<CardContent
+										sx={{
+											width: "80%",
+											height: "80%",
+											justifyContent: "center",
+											alignItems: "center",
+											display: "flex",
+										}}
+									>
 										{investmentTypeData &&
 											renderPolarChart(
 												investmentTypeData
@@ -302,9 +416,26 @@ const CustomerPage: React.FC<{}> = () => {
 								</Card>
 							</Grid>
 							<Grid item xs={12} md={6}>
-								<Card sx={{ borderRadius: "4%" }}>
+								<Card
+									sx={{
+										borderRadius: "4%",
+										height: "400px",
+										justifyContent: "center",
+										alignItems: "center",
+										display: "flex",
+										flexDirection: "column",
+									}}
+								>
 									<CardHeader title="Sector" />
-									<CardContent>
+									<CardContent
+										sx={{
+											width: "80%",
+											height: "80%",
+											justifyContent: "center",
+											alignItems: "center",
+											display: "flex",
+										}}
+									>
 										{sectorData &&
 											renderPolarChart(sectorData)}
 									</CardContent>
@@ -315,75 +446,170 @@ const CustomerPage: React.FC<{}> = () => {
 						<Grid
 							item
 							container
-							direction="column"
 							justifyContent="center"
 							alignItems="center"
 							xs={12}
 							md={11}
+							spacing={3}
 						>
-							<Grid item xs={12}>
-								<Card sx={{ padding: "1em" }}>
-									<CardHeader title="Risk Profile" />
-									<CardContent sx={{ margin: "1em" }}>
-										<Typography fontFamily="Open Sans, sans-serif">
-											<strong>Customer Name:</strong>{" "}
-											{currentCustomer?.customerName}
-										</Typography>
-										<Typography fontFamily="Open Sans, sans-serif">
-											<strong>
-												Total Portfolio Allocation:
-											</strong>{" "}
-											{currentCustomer?.portfolio.reduce(
-												(total, asset) =>
-													total + asset.allocation,
-												0
+							<Grid item xs={12} container>
+								<Grid item xs={12} md={6}>
+									<Card
+										sx={{
+											padding: "1em",
+										}}
+									>
+										<CardHeader
+											title="Customer Risk Profile"
+											titleTypographyProps={{
+												variant: "h3",
+											}}
+										/>
+										<CardContent
+											sx={{
+												margin: "1em",
+											}}
+										>
+											<Typography>
+												<strong>Customer Name:</strong>{" "}
+												{currentCustomer?.customerName}
+											</Typography>
+											<Typography>
+												<strong>
+													Risk Scores by Asset:
+												</strong>
+											</Typography>
+											{currentCustomer?.portfolio.map(
+												(asset) => (
+													<Card
+														sx={{
+															my: 1,
+														}}
+														key={asset.assetName}
+													>
+														<CardContent
+															sx={{
+																backgroundColor:
+																	"#9c7ac8",
+																color: "white",
+															}}
+														>
+															<Typography>
+																<strong>
+																	Asset Name:
+																</strong>{" "}
+																{
+																	asset.assetName
+																}
+															</Typography>
+															<Typography>
+																<strong>
+																	Risk Score:
+																</strong>{" "}
+																{
+																	asset.riskScore
+																}
+																%
+															</Typography>
+															<Typography>
+																<strong>
+																	Allocation:
+																</strong>{" "}
+																{
+																	asset.allocation
+																}
+																%
+															</Typography>
+														</CardContent>
+													</Card>
+												)
 											)}
-											%
-										</Typography>
-										<Typography fontFamily="Open Sans, sans-serif">
-											<strong>
+										</CardContent>
+									</Card>
+								</Grid>
+								<Grid item xs={12} md={6}>
+									<Card
+										sx={{
+											padding: "1em",
+											height: "100%",
+											background: `linear-gradient(135deg, #6a50a1 0%, #927fbf 50%, #f1eeff 100%)`,
+											boxShadow: theme.shadows[4],
+											transition: "0.3s",
+											"&:hover": {
+												transform: "scale(1.05)",
+											},
+											animation: `${fadeIn} 1s ease-in`,
+										}}
+									>
+										<CardContent
+											sx={{
+												margin: "1em",
+												display: "flex",
+												flexDirection: "column",
+												justifyContent: "center",
+												alignItems: "center",
+												height: "100%",
+											}}
+										>
+											<Typography
+												variant="h4"
+												component="div"
+												sx={{
+													fontWeight: "bold",
+													textAlign: "center",
+													color: theme.palette.primary
+														.contrastText,
+												}}
+											>
 												Investment Risk Score:
-											</strong>{" "}
-											{calculateRiskInvestmentProfile(
-												currentCustomer
+											</Typography>
+											<Typography
+												variant="h1"
+												component="div"
+												sx={{
+													fontWeight: "bold",
+													textAlign: "center",
+													color: "white",
+													textShadow:
+														"2px 2px 4px rgba(0, 0, 0, 0.5)",
+												}}
+											>
+												{calculateRiskInvestmentProfile(
+													currentCustomer
+												)}
+											</Typography>
+										</CardContent>
+									</Card>
+								</Grid>
+							</Grid>
+							<Grid item xs={12}>
+								<Card
+									sx={{
+										borderRadius: "4%",
+										height: "600px",
+										justifyContent: "center",
+										alignItems: "center",
+										display: "flex",
+										flexDirection: "column",
+									}}
+								>
+									<CardHeader title="Risk Score and Allocation" />
+
+									<CardContent
+										sx={{
+											width: "80%",
+											height: "80%",
+											justifyContent: "center",
+											alignItems: "center",
+											display: "flex",
+										}}
+									>
+										{riskProfileData &&
+											allocationData &&
+											renderRiskProfileChart(
+												riskProfileData,
+												allocationData
 											)}
-										</Typography>
-										<Typography fontFamily="Open Sans, sans-serif">
-											<strong>
-												Risk Scores by Asset:
-											</strong>
-										</Typography>
-										{currentCustomer?.portfolio.map(
-											(asset) => (
-												<Card
-													sx={{
-														my: 1,
-													}}
-													key={asset.assetName}
-												>
-													<CardContent>
-														<Typography fontFamily="Open Sans, sans-serif">
-															<strong>
-																Asset Name:
-															</strong>{" "}
-															{asset.assetName}
-														</Typography>
-														<Typography fontFamily="Open Sans, sans-serif">
-															<strong>
-																Risk Score:
-															</strong>{" "}
-															{asset.riskScore}
-														</Typography>
-														<Typography fontFamily="Open Sans, sans-serif">
-															<strong>
-																Allocation:
-															</strong>{" "}
-															{asset.allocation}%
-														</Typography>
-													</CardContent>
-												</Card>
-											)
-										)}
 									</CardContent>
 								</Card>
 							</Grid>

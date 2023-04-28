@@ -231,11 +231,7 @@ const AddCustomerModal: React.FC<AddCustomerModalProps> = ({
 						overflow: "scroll",
 					}}
 				>
-					<Typography
-						fontFamily="Open Sans, sans-serif"
-						variant="h5"
-						mb={2}
-					>
+					<Typography variant="h5" mb={2}>
 						Add a Customer
 					</Typography>
 					<TextField
@@ -256,10 +252,7 @@ const AddCustomerModal: React.FC<AddCustomerModalProps> = ({
 								aria-controls={`asset-allocation-content-${index}`}
 								id={`asset-allocation-header-${index}`}
 							>
-								<Typography
-									fontFamily="Open Sans, sans-serif"
-									variant="h6"
-								>
+								<Typography variant="h6">
 									Asset Allocation {index + 1}
 								</Typography>
 							</AccordionSummary>
@@ -358,11 +351,7 @@ const AddCustomerModal: React.FC<AddCustomerModalProps> = ({
 						>
 							<AddCircleOutline />
 						</IconButton>
-						<Typography
-							fontFamily="OpenSans"
-							variant="body1"
-							display="inline"
-						>
+						<Typography variant="body1" display="inline">
 							Add New Asset
 						</Typography>
 					</Box>
@@ -385,10 +374,7 @@ const AddCustomerModal: React.FC<AddCustomerModalProps> = ({
 					</Box>
 					{errorAddingCustomer && (
 						<Box sx={{ display: "flex", justifyContent: "center" }}>
-							<Typography
-								fontFamily="Open Sans, sans-serif"
-								color="error"
-							>
+							<Typography color="error">
 								Error adding customer please try again
 							</Typography>
 						</Box>

@@ -5,11 +5,11 @@
 :root {
 	--background-rgb: 29 30 34;
 
-	--blue-rgb: 33 150 243;
+	--blue-rgb: 203 40 244;
 	--primary-rgb: var(--blue-rgb);
 
 	--blob-color-1: rgb(var(--blue-rgb));
-	--blob-color-2: dodgerblue;
+	--blob-color-2: rgb(203, 30, 255);
 }
 
 * {
