@@ -79,9 +79,9 @@ const BasePage: React.FC<{}> = () => {
 									sx={{
 										padding: "2rem",
 										maxHeight: "80vh",
-										//overflowY: "scroll",
+										overflowY: "scroll",
 									}}>
-									<Grid container>
+									<Grid container rowGap="1rem">
 										<Grid item xs={12} md={7} maxHeight='65vh'>
 											<Grid
 												container
@@ -142,9 +142,9 @@ const BasePage: React.FC<{}> = () => {
 										<Grid item xs={12} md={5} height='65vh'>
 											<Box height='100%'>
 												<Grid container height='100%'>
-													<Grid item xs={12}>
+													<Grid item xs={12} height="10%">
 														<Grid container alignItems="center" paddingX="20px" xs={12}>
-															<Grid item display="flex" xs={6} >
+															<Grid item display="flex" xs={6} flexShrink="1">
 																<Typography variant="h6">
 																	Customers:
 																</Typography>
@@ -159,56 +159,50 @@ const BasePage: React.FC<{}> = () => {
 															</Grid>
 														</Grid>
 													</Grid>
-													<Grid item>
-														<Box
-															sx={{
-																textAlign: "center",
-																overflowY: "scroll",
-															}}>
-															{customerData.map(
-																(
-																	customer: CustomerData,
-																	index
-																) => (
-																	<Button
-																		className="customer-button"
+													<Grid item textAlign='center' height="90%" overflow="scroll">
+														{customerData.map(
+															(
+																customer: CustomerData,
+																index
+															) => (
+																<Button
+																	className="customer-button"
+																	sx={{
+																		width: "90%",
+																		padding: "20px",
+																		margin: "10px 0",
+																	}}
+																	key={index}
+																	color="primary"
+																	onClick={() =>
+																		setCurrentCustomer(
+																			customer
+																		)
+																	}
+																	variant="contained"
+																>
+																	<Box
 																		sx={{
-																			width: "90%",
-																			padding: "20px",
-																			margin: "10px 0",
+																			display: "flex",
+																			alignItems:
+																				"center",
 																		}}
-																		key={index}
-																		color="primary"
-																		onClick={() =>
-																			setCurrentCustomer(
-																				customer
-																			)
-																		}
-																		variant="contained"
 																	>
-																		<Box
+																		<AccountCircleIcon
 																			sx={{
-																				display: "flex",
-																				alignItems:
-																					"center",
+																				marginRight:
+																					"0.5rem",
 																			}}
-																		>
-																			<AccountCircleIcon
-																				sx={{
-																					marginRight:
-																						"0.5rem",
-																				}}
-																			/>
-																			<Typography variant="body1">
-																				{
-																					customer.customerName
-																				}
-																			</Typography>
-																		</Box>
-																	</Button>
-																)
-															)}
-														</Box>
+																		/>
+																		<Typography variant="body1">
+																			{
+																				customer.customerName
+																			}
+																		</Typography>
+																	</Box>
+																</Button>
+															)
+														)}
 													</Grid>
 												</Grid>
 											</Box>
@@ -218,18 +212,19 @@ const BasePage: React.FC<{}> = () => {
 							</Grid>
 						</Grid>
 					</Grid>
+					<Grid item>
+						<Link
+							to="section2"
+							spy={true}
+							smooth={true}
+							offset={0}
+							duration={350}
+						>
+							<KeyboardDoubleArrowDown fontSize="large" />
+						</Link>
+					</Grid >
 				</Grid >
-				<Grid item>
-					<Link
-						to="section2"
-						spy={true}
-						smooth={true}
-						offset={0}
-						duration={350}
-					>
-						<KeyboardDoubleArrowDown fontSize="large" />
-					</Link>
-				</Grid >
+
 			</Element >
 			<Element name="section2">
 				<Box minHeight="100vh">
