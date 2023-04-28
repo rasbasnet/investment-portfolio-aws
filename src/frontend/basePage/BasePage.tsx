@@ -1,4 +1,12 @@
-import { Grid, Typography, Paper, Box, Avatar, Button, Card, Divider } from "@mui/material";
+import {
+	Grid,
+	Typography,
+	Paper,
+	Box,
+	Avatar,
+	Button,
+	Card,
+} from "@mui/material";
 import SearchBar from "../searchBar/SearchBar";
 import { useEffect, useState } from "react";
 import { addCustomerData, fetchCustomerData } from "../utils/fetchUtil";
@@ -16,7 +24,7 @@ import {
 } from "@mui/icons-material";
 import AddCustomerModal from "../addCustomerModal/AddCustomerModal";
 import React from "react";
-//import { Divider } from "@mui/joy";
+
 const BasePage: React.FC<{}> = () => {
 	const [customerData, setCustomerData] = useState<CustomerData[] | null>(
 		null
@@ -69,26 +77,37 @@ const BasePage: React.FC<{}> = () => {
 				>
 					<SearchBar customerData={customerData} />
 					<Grid item>
-						<Grid container
+						<Grid
+							container
 							alignItems="center"
-							justifyContent="center">
-							<Grid item
-								xs={12} md={10}>
+							justifyContent="center"
+						>
+							<Grid item xs={12} md={10}>
 								<Paper
 									elevation={8}
 									sx={{
 										padding: "2rem",
 										maxHeight: "80vh",
 										overflowY: "scroll",
-									}}>
+									}}
+								>
 									<Grid container rowGap="1rem">
-										<Grid item xs={12} md={7} maxHeight='65vh'>
+										<Grid
+											item
+											xs={12}
+											md={7}
+											container
+											justifyContent="center"
+											alignItems="center"
+										>
 											<Grid
-												container
 												justifyContent="center"
 												alignItems="center"
 												className="screenhome"
-												xs={12}>
+												item
+												height="45vh"
+												width="80vw"
+											>
 												<div className="screenhome-image"></div>
 												<div className="screenhome-overlay"></div>
 												<div className="screenhome-content">
@@ -99,8 +118,8 @@ const BasePage: React.FC<{}> = () => {
 																<Avatar
 																	className="avatar-animation"
 																	sx={{
-																		width: "200px",
-																		height: "200px",
+																		width: "15vh",
+																		height: "15vh",
 																		backgroundColor:
 																			"black",
 																	}}
@@ -108,12 +127,12 @@ const BasePage: React.FC<{}> = () => {
 																	<AccountCircleIcon
 																		sx={{
 																			fontSize:
-																				"130px",
+																				"15vh",
 																		}}
 																	/>
 																</Avatar>
 																<Typography
-																	variant="h3"
+																	fontSize="0.4em"
 																	className="customerName-animation link"
 																>
 																	{
@@ -130,7 +149,8 @@ const BasePage: React.FC<{}> = () => {
 																	color="primary"
 																	variant="contained"
 																>
-																	View Customer
+																	View
+																	Customer
 																	Portfolio
 																</Button>
 															</>
@@ -139,27 +159,52 @@ const BasePage: React.FC<{}> = () => {
 												</div>
 											</Grid>
 										</Grid>
-										<Grid item xs={12} md={5} height='65vh'>
-											<Box height='100%'>
-												<Grid container height='100%'>
-													<Grid item xs={12} height="10%">
-														<Grid container alignItems="center" paddingX="20px" xs={12}>
-															<Grid item display="flex" xs={6} flexShrink="1">
-																<Typography variant="h6">
-																	Customers:
-																</Typography>
-															</Grid>
-															<Grid item display="flex" justifyContent="flex-end" xs={6}>
-																<Button
-																	onClick={handleAddCustomerModal}
-																	color="primary"
-																	variant="outlined">
-																	+ Add a customer
-																</Button>
-															</Grid>
+										<Grid item xs={12} md={5}>
+											<Box>
+												<Grid container>
+													<Grid
+														item
+														container
+														xs={12}
+														sx={{
+															padding: "20px",
+														}}
+													>
+														<Grid
+															item
+															xs={12}
+															sm={6}
+														>
+															<Typography variant="h6">
+																Customers:
+															</Typography>
+														</Grid>
+														<Grid
+															item
+															xs={12}
+															sm={6}
+															container
+															justify-content="end"
+															alignItems="center"
+														>
+															<Button
+																onClick={
+																	handleAddCustomerModal
+																}
+																color="primary"
+																variant="outlined"
+																fullWidth
+															>
+																+ Add a customer
+															</Button>
 														</Grid>
 													</Grid>
-													<Grid item textAlign='center' height="90%" overflow="scroll">
+													<Grid
+														item
+														textAlign="center"
+														overflow="scroll"
+														height="40vh"
+													>
 														{customerData.map(
 															(
 																customer: CustomerData,
@@ -169,7 +214,8 @@ const BasePage: React.FC<{}> = () => {
 																	className="customer-button"
 																	sx={{
 																		width: "90%",
-																		padding: "20px",
+																		padding:
+																			"20px",
 																		margin: "10px 0",
 																	}}
 																	key={index}
@@ -183,7 +229,8 @@ const BasePage: React.FC<{}> = () => {
 																>
 																	<Box
 																		sx={{
-																			display: "flex",
+																			display:
+																				"flex",
 																			alignItems:
 																				"center",
 																		}}
@@ -222,13 +269,11 @@ const BasePage: React.FC<{}> = () => {
 						>
 							<KeyboardDoubleArrowDown fontSize="large" />
 						</Link>
-					</Grid >
-				</Grid >
-
-			</Element >
+					</Grid>
+				</Grid>
+			</Element>
 			<Element name="section2">
 				<Box minHeight="100vh">
-
 					<Grid
 						container
 						direction="column"
@@ -243,15 +288,17 @@ const BasePage: React.FC<{}> = () => {
 						}}
 					>
 						<Grid item width="100%">
-							<Divider variant="middle" sx={{ "&::before, &::after": { borderColor: "#ffffff" } }}>
-								<Typography
-									variant="h3"
-									color="primary"
-									sx={{ color: "#ffffff" }}
-								>
-									Investment Dashboard
-								</Typography>
-							</Divider>
+							<Typography
+								variant="h3"
+								color="primary"
+								sx={{
+									color: "#ffffff",
+									fontWeight: "800",
+									fontSize: "2em",
+								}}
+							>
+								Investment Dashboard
+							</Typography>
 						</Grid>
 						<Grid item>
 							<Typography variant="h5" sx={{ color: "#ffffff" }}>
@@ -261,7 +308,12 @@ const BasePage: React.FC<{}> = () => {
 						</Grid>
 					</Grid>
 
-					<Grid item container alignItems="stretch" justifyContent="center">
+					<Grid
+						item
+						container
+						alignItems="stretch"
+						justifyContent="center"
+					>
 						<Grid
 							item
 							md={4}
@@ -269,7 +321,10 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
+							<Card
+								elevation={4}
+								sx={{ padding: "2rem", height: "100%" }}
+							>
 								<CallMade fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Easy Access
@@ -287,7 +342,10 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
+							<Card
+								elevation={4}
+								sx={{ padding: "2rem", height: "100%" }}
+							>
 								<Security fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Risk Management
@@ -305,7 +363,10 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
+							<Card
+								elevation={4}
+								sx={{ padding: "2rem", height: "100%" }}
+							>
 								<ShowChart fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Visual Analytics
@@ -330,15 +391,17 @@ const BasePage: React.FC<{}> = () => {
 						}}
 					>
 						<Grid item width="100%">
-							<Divider variant="middle" sx={{ "&::before, &::after": { borderColor: "#ffffff" } }}>
-								<Typography
-									variant="h3"
-									color="primary"
-									sx={{ color: "#ffffff" }}
-								>
-									Take Control of Investments
-								</Typography>
-							</Divider>
+							<Typography
+								variant="h5"
+								color="primary"
+								sx={{
+									color: "#ffffff",
+									fontWeight: "800",
+									fontSize: "2em",
+								}}
+							>
+								Take Control of Investments
+							</Typography>
 						</Grid>
 						<Grid item>
 							<Typography variant="h5" sx={{ color: "#ffffff" }}>
@@ -348,7 +411,12 @@ const BasePage: React.FC<{}> = () => {
 						</Grid>
 					</Grid>
 
-					<Grid item container alignItems="stretch" justifyContent="center">
+					<Grid
+						item
+						container
+						alignItems="stretch"
+						justifyContent="center"
+					>
 						<Grid
 							item
 							md={4}
@@ -356,7 +424,10 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
+							<Card
+								elevation={4}
+								sx={{ padding: "2rem", height: "100%" }}
+							>
 								<Assessment fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Innovative Strategies
@@ -374,7 +445,10 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
+							<Card
+								elevation={4}
+								sx={{ padding: "2rem", height: "100%" }}
+							>
 								<People fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Client-Centric Approach
@@ -393,7 +467,10 @@ const BasePage: React.FC<{}> = () => {
 							xs={12}
 							sx={{ padding: "2rem", textAlign: "center" }}
 						>
-							<Card elevation={4} sx={{ padding: "2rem", height: "100%" }}>
+							<Card
+								elevation={4}
+								sx={{ padding: "2rem", height: "100%" }}
+							>
 								<Security fontSize="large" color="primary" />
 								<Typography variant="h4">
 									Secure & Trusted
@@ -405,20 +482,28 @@ const BasePage: React.FC<{}> = () => {
 							</Card>
 						</Grid>
 					</Grid>
-					<Divider variant="middle">
-						<Typography variant="h5" sx={{ color: "#4c2f7a" }}>
-							About Asset & Wealth Services
-						</Typography>
-					</Divider>
-					<Typography variant="body1" width="80%" margin="auto" paddingBottom={2} textAlign="center" sx={{ color: "black" }}>
-						Located in Hawthorn, Victoria, Asset & Wealth
-						Services is a leading investment management firm
-						with a strong focus on providing tailored
-						solutions to our clients. With years of
-						experience in the industry, our team of experts
-						works closely with clients to understand their
-						needs and goals, offering personalized
-						investment strategies and risk management.
+					<Typography
+						variant="h5"
+						textAlign="center"
+						sx={{ color: "#4c2f7a" }}
+					>
+						About Asset & Wealth Services
+					</Typography>
+					<Typography
+						variant="body1"
+						width="80%"
+						margin="auto"
+						paddingBottom={2}
+						textAlign="center"
+						sx={{ color: "black" }}
+					>
+						Located in Hawthorn, Victoria, Asset & Wealth Services
+						is a leading investment management firm with a strong
+						focus on providing tailored solutions to our clients.
+						With years of experience in the industry, our team of
+						experts works closely with clients to understand their
+						needs and goals, offering personalized investment
+						strategies and risk management.
 					</Typography>
 				</Box>
 			</Element>
@@ -427,7 +512,7 @@ const BasePage: React.FC<{}> = () => {
 				handleClose={() => setShowAddCustomerModal(false)}
 				addCustomer={handleSubmitCustomer}
 			/>
-		</Grid >
+		</Grid>
 	) : (
 		<div>Error fetching data. Please refresh</div>
 	);
