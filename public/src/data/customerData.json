@@ -557,11 +557,443 @@
 		"portfolio": [
 			{
 				"assetName": "Amazon",
-				"allocation": 2000,
+				"allocation": 20,
 				"riskScore": 3,
 				"annualReturn": 1000,
 				"investmentValue": 800,
 				"sector": "E-commerce",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Arlene Cruz", 
+		"customerNumber": "24",
+		"portfolio": [
+			{
+				"assetName": "BlueScope",
+				"allocation": 19,
+				"riskScore": 2,
+				"annualReturn": 6600,
+				"investmentValue": 600,
+				"sector": "Iron & steel",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Adela Logan", 
+		"customerNumber": "25",
+		"portfolio": [
+			{
+				"assetName": "Bulla Dairy Foods",
+				"allocation": 19,
+				"riskScore": 4,
+				"annualReturn": 17591,
+				"investmentValue": 3545,
+				"sector": "Beverages",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Judson Montes", 
+		"customerNumber": "26",
+		"portfolio": [
+			{
+				"assetName": "Lowes Menswear",
+				"allocation": 17,
+				"riskScore": 2,
+				"annualReturn": 7997,
+				"investmentValue": 16687,
+				"sector": "Apparel retailers",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Randi Kelly", 
+		"customerNumber": "27",
+		"portfolio": [
+			{
+				"assetName": "Roy Morgan Research",
+				"allocation": 5,
+				"riskScore": 4,
+				"annualReturn": 24111,
+				"investmentValue": 2499,
+				"sector": "Business support services",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Alyce Mercer",
+		"customerNumber": "28",
+		"portfolio": [
+			{
+				"assetName": "Tarocash",
+				"allocation": 19,
+				"riskScore": 1,
+				"annualReturn": 3257,
+				"investmentValue": 19921,
+				"sector": "Clothing & accessories",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Tammi Anderson", 
+		"customerNumber": "29",
+		"portfolio": [
+			{
+				"assetName": "Telstra",
+				"allocation": 8,
+				"riskScore": 4,
+				"annualReturn": 24082,
+				"investmentValue": 4721,
+				"sector": "Fixed line telecommunications",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Mohammed Davidson",
+		"customerNumber": "30",
+		"portfolio": [
+			{
+				"assetName": "CHEP",
+				"allocation": 22,
+				"riskScore": 2,
+				"annualReturn": 15560,
+				"investmentValue": 16825,
+				"sector": "Delivery services",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Gerard Jarvis", 
+		"customerNumber": "31",
+		"portfolio": [
+			{
+				"assetName": "Canva",
+				"allocation": 19,
+				"riskScore": 4,
+				"annualReturn": 9910,
+				"investmentValue": 13226,
+				"sector": "Specialised consumer services",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Derek Phelps", 
+		"customerNumber": "32",
+		"portfolio": [
+			{
+				"assetName": "PIPE Networks",
+				"allocation": 15,
+				"riskScore": 1,
+				"annualReturn": 9403,
+				"investmentValue": 111,
+				"sector": "Fixed line telecommunications",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Glenna Henson", 
+		"customerNumber": "33",
+		"portfolio": [
+			{
+				"assetName": "Scentre Group",
+				"allocation": 6,
+				"riskScore": 4,
+				"annualReturn": 26214,
+				"investmentValue": 16085,
+				"sector": "Broadline retailers",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Samantha Blackwell", 
+		"customerNumber": "34",
+		"portfolio": [
+			{
+				"assetName": "Qantas",
+				"allocation": 5,
+				"riskScore": 3,
+				"annualReturn": 7863,
+				"investmentValue": 14460,
+				"sector": "Airlines",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Loren Grimes", 
+		"customerNumber": "35",
+		"portfolio": [
+			{
+				"assetName": "Compass Resources",
+				"allocation": 20,
+				"riskScore": 4,
+				"annualReturn": 10613,
+				"investmentValue": 18639,
+				"sector": "General mining",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Joanna Beard", 
+		"customerNumber": "36",
+		"portfolio": [
+			{
+				"assetName": "Country Energy",
+				"allocation": 23,
+				"riskScore": 3,
+				"annualReturn": 6010,
+				"investmentValue": 6438,
+				"sector": "Conventional electricity",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Kathryn Vaughn", 
+		"customerNumber": "37",
+		"portfolio": [
+			{
+				"assetName": "David Jones",
+				"allocation": 19,
+				"riskScore": 4,
+				"annualReturn": 4557,
+				"investmentValue": 17374,
+				"sector": "Broadline retailers",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Betsy Ware",
+		"customerNumber": "38",
+		"portfolio": [
+			{
+				"assetName": "CSR",
+				"allocation": 10,
+				"riskScore": 2,
+				"annualReturn": 27822,
+				"investmentValue": 9415,
+				"sector": "General mining",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Jasper Kelley", 
+		"customerNumber": "39",
+		"portfolio": [
+			{
+				"assetName": "Employsure",
+				"allocation": 15,
+				"riskScore": 4,
+				"annualReturn": 25346,
+				"investmentValue": 5849,
+				"sector": "Business support services",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Demarcus Sanford", 
+		"customerNumber": "40",
+		"portfolio": [
+			{
+				"assetName": "Fairfax Media",
+				"allocation": 18,
+				"riskScore": 1,
+				"annualReturn": 11008,
+				"investmentValue": 750,
+				"sector": "Publishing",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Fran Clarke", 
+		"customerNumber": "41",
+		"portfolio": [
+			{
+				"assetName": "Esanda",
+				"allocation": 5,
+				"riskScore": 3,
+				"annualReturn": 16952,
+				"investmentValue": 10432,
+				"sector": "Consumer finance",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Lester Delacruz", 
+		"customerNumber": "42",
+		"portfolio": [
+			{
+				"assetName": "EnviroMission",
+				"allocation": 20,
+				"riskScore": 2,
+				"annualReturn": 3262,
+				"investmentValue": 12429,
+				"sector": "Alternative electricity",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Hayden Jimenez",
+		"customerNumber": "43",
+		"portfolio": [
+			{
+				"assetName": "Driza-Bone",
+				"allocation": 14,
+				"riskScore": 1,
+				"annualReturn": 4978,
+				"investmentValue": 5027,
+				"sector": "Clothing & accessories",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Elmo Melendez",
+		"customerNumber": "44",
+		"portfolio": [
+			{
+				"assetName": "Dick Smith Electronics",
+				"allocation": 2,
+				"riskScore": 5,
+				"annualReturn": 19059,
+				"investmentValue": 1396,
+				"sector": "Specialty retailers",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Clark Hanson", 
+		"customerNumber": "45",
+		"portfolio": [
+			{
+				"assetName": "Seven Network",
+				"allocation": 17,
+				"riskScore": 3,
+				"annualReturn": 8618,
+				"investmentValue": 12339,
+				"sector": "Broadcasting & entertainment",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Fernando Bell", 
+		"customerNumber": "46",
+		"portfolio": [
+			{
+				"assetName": "Sidney Cooke",
+				"allocation": 8,
+				"riskScore": 5,
+				"annualReturn": 20620,
+				"investmentValue": 15011,
+				"sector": "Printing products",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Maxine Baird",
+		"customerNumber": "47",
+		"portfolio": [
+			{
+				"assetName": "Star Entertainment Group",
+				"allocation": 25,
+				"riskScore": 1,
+				"annualReturn": 21891,
+				"investmentValue": 1915,
+				"sector": "Hotels",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Geneva Stanton",
+		"customerNumber": "48",
+		"portfolio": [
+			{
+				"assetName": "Sting Sports",
+				"allocation": 2,
+				"riskScore": 2,
+				"annualReturn": 12107,
+				"investmentValue": 11349,
+				"sector": "Clothing & accessories",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Dalton Vega", 
+		"customerNumber": "49",
+		"portfolio": [
+			{
+				"assetName": "Stanwell Corporation",
+				"allocation": 17,
+				"riskScore": 5,
+				"annualReturn": 12157,
+				"investmentValue": 10240,
+				"sector": "Conventional electricity",
+				"investmentType": "Stock",
+				"country": "Australia"
+			}
+		]
+	},
+	{
+		"customerName": "Monique Pace",
+		"customerNumber": "50",
+		"portfolio": [
+			{
+				"assetName": "Woolworths",
+				"allocation": 5,
+				"riskScore": 1,
+				"annualReturn": 12311,
+				"investmentValue": 18417,
+				"sector": "Broadline retailers",
 				"investmentType": "Stock",
 				"country": "Australia"
 			}
