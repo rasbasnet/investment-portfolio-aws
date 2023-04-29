@@ -51,7 +51,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ customerData }) => {
 					container
 					justifyContent="center"
 					className="searchBar-field"
-					xs={10}
+					xs={12}
+					sm={10}
 				>
 					<Stack sx={{ width: "100%", padding: "5px" }}>
 						<form onSubmit={preventSubmit}>
@@ -80,7 +81,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ customerData }) => {
 					container
 					justifyContent="center"
 					alignItems="center"
-					xs={2}
+					xs={12}
+					sm={2}
 				>
 					<Button
 						variant="outlined"
